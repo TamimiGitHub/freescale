@@ -40,6 +40,8 @@ int main(void)
 				else
 					TFC_BAT_LED2_OFF;
 				
+				TFC_SetMotorPWM(0,0); //Make sure motors are off
+				TFC_HBRIDGE_DISABLE;
 				break;
 					
 			case 1:
@@ -74,7 +76,8 @@ int main(void)
 				
 				//Demo Mode 2 will use the Pots to make the motors move
 				TFC_HBRIDGE_ENABLE;
-				TFC_SetMotorPWM(TFC_ReadPot(0),TFC_ReadPot(1));
+				TFC_SetMotorPWM(25,25);
+				//TFC_SetMotorPWM(TFC_ReadPot(0),TFC_ReadPot(1));
 						
 				//Let's put a pattern on the LEDs
 				if(TFC_Ticker[1] >= 125)
@@ -87,6 +90,7 @@ int main(void)
 							}			
 						TFC_SetBatteryLED_Level(t);
 					}
+
 				break;
 			
 			case 3 :
@@ -124,7 +128,8 @@ int main(void)
 						}										
 							
 					}
-					
+				TFC_SetMotorPWM(0,0); //Make sure motors are off
+				TFC_HBRIDGE_DISABLE;
 
 
 				break;
