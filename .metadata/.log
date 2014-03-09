@@ -1,0 +1,450 @@
+!SESSION 2014-03-09 15:40:44.079 -----------------------------------------------
+eclipse.buildId=I20070613-1755
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:40:55.899
+!MESSAGE NLS missing message: ContentTypes_errorDialogAlreadyExists in: org.eclipse.ui.internal.messages
+
+!ENTRY com.freescale.processorexpert.core 1 0 2014-03-09 15:40:56.934
+!MESSAGE Plugin com.freescale.processorexpert.core.service ProcessorExpertServiceProvider
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2014-03-09 15:41:01.810
+!MESSAGE Environment Variable Dependency not resolved for 'ARMGNUDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2014-03-09 15:41:01.819
+!MESSAGE Environment Variable Dependency not resolved for 'ARMSummonDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2014-03-09 15:41:01.823
+!MESSAGE Environment Variable Dependency not resolved for 'ARMYagartoDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2014-03-09 15:41:01.827
+!MESSAGE Environment Variable Dependency not resolved for 'ARMdevkitProDirEnv'.
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2014-03-09 15:41:05.332
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.5\eclipse\../MCU/lib/wizard_data/mqx/4.0/patches' does not exist
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.652
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.659
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.664
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.669
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.674
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.921
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.926
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.931
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.936
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.941
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.946
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.951
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.956
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.961
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.966
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.971
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.976
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.982
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.987
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.992
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:11.998
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.003
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.008
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.016
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.021
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.026
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.032
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.037
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.043
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.048
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.053
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.058
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.064
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.069
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.075
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.080
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.107
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.113
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.118
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.123
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.129
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.134
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.139
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.145
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.150
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.156
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.485
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.494
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.500
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.506
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.511
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.517
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.523
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.528
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.534
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.539
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.545
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.550
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.556
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.562
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.567
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.573
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.578
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.584
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.589
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.595
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY com.freescale.core.debugger.ddd 1 0 2014-03-09 15:41:12.601
+!MESSAGE leaking DDD object - com.freescale.cdt.debug.cw.core.ddd.DebugContext
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2014-03-09 15:41:12.808
+!MESSAGE No repository found at jar:file:H:%5CYdrive%5CFreeScale%5CCW%20for%20MCU%2010.5%5Ccom.freescale.mcu10_5.coldfire.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2014-03-09 15:41:12.852
+!MESSAGE No repository found at jar:file:H:%5CYdrive%5CFreeScale%5CCW%20for%20MCU%2010.5%5Ccom.freescale.mcu10_5.hcs08_rs08.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2014-03-09 15:41:12.895
+!MESSAGE No repository found at jar:file:H:%5CYdrive%5CFreeScale%5CCW%20for%20MCU%2010.5%5Ccom.freescale.mcu10_5.s12z.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2014-03-09 15:41:12.949
+!MESSAGE No repository found at jar:file:H:%5CYdrive%5CFreeScale%5CCW%20for%20MCU%2010.5%5Ccom.freescale.mcu10_5.dsc.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2014-03-09 15:41:12.994
+!MESSAGE No repository found at jar:file:H:%5CYdrive%5CFreeScale%5CCW%20for%20MCU%2010.5%5Ccom.freescale.mcu10_5.kinetis.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2014-03-09 15:41:13.040
+!MESSAGE No repository found at jar:file:H:%5CYdrive%5CFreeScale%5CCW%20for%20MCU%2010.5%5Ccom.freescale.mcu10_5.e200.updatesite.zip!/.
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.041
+!MESSAGE NLS unused message: NewProjectCreator_coreException1 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.049
+!MESSAGE NLS unused message: NewProjectCreator_coreException2 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.057
+!MESSAGE NLS unused message: NewProjectCreator_coreException3 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.064
+!MESSAGE NLS unused message: NewProjectCreator_exception1 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.072
+!MESSAGE NLS unused message: NewProjectCreator_wizardException1 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.079
+!MESSAGE NLS unused message: NewProjectCreator_wizardException2 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.126
+!MESSAGE NLS unused message: NewProjectCreator_wizardException3 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.133
+!MESSAGE NLS unused message: NewProjectCreator_wizardException4 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.140
+!MESSAGE NLS unused message: NewProjectCreator_wizardException5 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.147
+!MESSAGE NLS unused message: NewProjectCreator_wizardException6 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.154
+!MESSAGE NLS unused message: NewProjectCreator_wizardException7 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.161
+!MESSAGE NLS unused message: NewProjectCreator_wizardException8 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.168
+!MESSAGE NLS unused message: NewProjectCreator_wizardException9 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.175
+!MESSAGE NLS unused message: NewProjectCreator_logError1 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.182
+!MESSAGE NLS unused message: NewProjectCreator_logError2 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.189
+!MESSAGE NLS unused message: NewProjectCreator_logError3 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.196
+!MESSAGE NLS unused message: NewProjectCreator_logError4 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.204
+!MESSAGE NLS unused message: NewProjectCreator_multiProjType in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.211
+!MESSAGE NLS unused message: NewProjectCreator_typeNotFound in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.218
+!MESSAGE NLS unused message: NewProjectCreator_saveOptions in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.225
+!MESSAGE NLS unused message: NewProjectCreator_cantLocateType in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.232
+!MESSAGE NLS unused message: NewProjectCreator_addNature in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.240
+!MESSAGE NLS unused message: NewProjectCreator_addBuilder in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.247
+!MESSAGE NLS unused message: NewProjectCreator_settingNotFound in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.254
+!MESSAGE NLS unused message: NewProjectCreator_optionNotFound in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.261
+!MESSAGE NLS unused message: NewProjectCreator_unknownOption in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.269
+!MESSAGE NLS unused message: NewProjectCreator_configNotFound in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.276
+!MESSAGE NLS unused message: NewProjectCreator_varContainsOpenBrace in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.283
+!MESSAGE NLS unused message: NewProjectCreator_endlessVarLoop in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.290
+!MESSAGE NLS unused message: NewProjectCreator_userFilesNotFound in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.297
+!MESSAGE NLS unused message: NewProjectCreator_warningTitleFilesNotFound in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.304
+!MESSAGE NLS unused message: ExtensionLoader_loadexception in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.311
+!MESSAGE NLS unused message: ExtensionLoader_wizardException in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.319
+!MESSAGE NLS unused message: ExtensionLoader_unknown in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.326
+!MESSAGE NLS unused message: ExtensionLoader_illElement in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.333
+!MESSAGE NLS unused message: CWWizard_windowTitle in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.340
+!MESSAGE NLS unused message: CWWizard_description in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.347
+!MESSAGE NLS unused message: CWWizard_pageTitle in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.355
+!MESSAGE NLS unused message: CWWizard_pageDescription in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.362
+!MESSAGE NLS unused message: CWWizard_errorTitle in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.369
+!MESSAGE NLS unused message: CWWizard_errorMsg in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.376
+!MESSAGE NLS unused message: CWWizard_classicImporter_pageTitle in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.383
+!MESSAGE NLS unused message: CWWizard_classicImporter_pageDescription in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.391
+!MESSAGE NLS unused message: WizardInfo_wizardException0 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.398
+!MESSAGE NLS unused message: WizardInfo_wizardException1 in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.405
+!MESSAGE NLS unused message: ApplySetting_noChildFound in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.412
+!MESSAGE NLS unused message: ApplySetting_attrNotAllowed in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.419
+!MESSAGE NLS unused message: ApplySetting_childNotAllowed in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.427
+!MESSAGE NLS unused message: ApplySetting_attrNotSpecified in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.434
+!MESSAGE NLS unused message: ApplySetting_errValueType in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.441
+!MESSAGE NLS unused message: ApplySetting_illSettingType in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.448
+!MESSAGE NLS unused message: ApplySetting_illSettingMode in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.456
+!MESSAGE NLS unused message: ProjectNamePage_stepFormat in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.463
+!MESSAGE NLS unused message: ProjectNamePage_collisionWarn in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.470
+!MESSAGE NLS unused message: ProjectName_error in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-03-09 15:41:26.477
+!MESSAGE NLS unused message: ProjectLocation_error in: com.freescale.core.ide.newprojectwizard.messages
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:27.455
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.board.family.v2
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:27.461
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.board.family.v3
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:27.466
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.board.family.v4
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:27.472
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.board.family.v4e
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:27.477
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.twrboard.family.v2
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:27.483
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.twrboard.family.v3
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:27.489
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.twrboard.family.v4
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:27.494
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.twrboard.family.v4e
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:35.249
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.chip.kinetis_e.ke1x.subfamily.ke14d_36
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:35.257
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.chip.kinetis_e.ke1x.subfamily.ke14d_72
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:35.264
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.chip.kinetis_e.ke1x.subfamily.ke15d_36
+
+!ENTRY com.freescale.core.ide.wizard.ui 4 0 2014-03-09 15:41:35.271
+!MESSAGE Unknown UI Element ID: mcu.projectwizard.chip.kinetis_e.ke1x.subfamily.ke15d_72
