@@ -76,7 +76,7 @@ int main(void)
 				
 				//Demo Mode 2 will use the Pots to make the motors move
 				TFC_HBRIDGE_ENABLE;
-				TFC_SetMotorPWM(25,25);
+				TFC_SetMotorPWM(10,10);
 				//TFC_SetMotorPWM(TFC_ReadPot(0),TFC_ReadPot(1));
 						
 				//Let's put a pattern on the LEDs
