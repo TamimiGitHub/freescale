@@ -3,33 +3,23 @@
 
 #define FTM1_CLOCK                                                                  (CORE_CLOCK)
 #define FTM1_CLK_PRESCALE                                  						     6// Prescale Selector value - see comments in Status Control (SC) section for more details
-#define FTM1_OVERFLOW_FREQUENCY 50  // Desired Frequency of PWM Signal - Here 50Hz => 20ms period
+#define FTM1_OVERFLOW_FREQUENCY 50  // Desired Frequency of PWM Signal - Here 60Hz => ~17ms period
 // use these to dial in servo steering to your particular servo
-#define SERVO_MIN_DUTY_CYCLE                                          (float)(.0010*FTM1_OVERFLOW_FREQUENCY)  // The number here should be be *pulse width* in seconds to move servo to its left limit
+#define SERVO_MIN_DUTY_CYCLE                                          (float)(.0014*FTM1_OVERFLOW_FREQUENCY)  // The number here should be be *pulse width* in seconds to move servo to its left limit
 #define SERVO_MAX_DUTY_CYCLE                                         (float)(.0020*FTM1_OVERFLOW_FREQUENCY)  // The number here should be be *pulse width* in seconds to move servo to its Right limit
 /**********************************************************************************************/
 
 //Position is -1.0 to 1.0.   Use SERVO_X_MIN_DUTY_CYCLE and SERVO_MAX_DUTY_CYCLE  to calibrate the extremes
-void TFC_SetServo(uint8_t ServoNumber, float Position)
+void TFC_SetServo(float Position)
 {
-                              TFC_SetServoDutyCycle(ServoNumber , 
-                                                            (((Position + 1.0)/2)*(SERVO_MAX_DUTY_CYCLE - SERVO_MIN_DUTY_CYCLE))+SERVO_MIN_DUTY_CYCLE);
+                              TFC_SetServoDutyCycle((((Position + 1.0)/2)*(SERVO_MAX_DUTY_CYCLE - SERVO_MIN_DUTY_CYCLE))+SERVO_MIN_DUTY_CYCLE);
                
 }
 
-void TFC_SetServoDutyCycle(uint8_t ServoNumber, float DutyCycle)
+void TFC_SetServoDutyCycle(float DutyCycle)
 {
-               switch(ServoNumber)
-               {
-               default:
-               case 0:
-                              TPM1_C0V = TPM1_MOD * DutyCycle;
-                              break;
+          TPM1_C0V = TPM1_MOD * DutyCycle;
 
-               case 1:
-                              TPM1_C1V = TPM1_MOD * DutyCycle;
-                              break;
-               }
 }
 
 /******************************************* Function to control Interrupt ************************************/
@@ -44,6 +34,38 @@ void FTM1_IRQHandler()
                if (ServoTickVar < 0xff)//if servo tick less than 255 count up... 
                               ServoTickVar++;
   
+}
+
+/**
+ * TFC_MoveServo: Move servo by a certain amount.
+ * 
+ * current: current position stored in main and passed to function using an ampersand (e.g. TFC_MoveServo(&a,20.0);)
+ * increment: amount to move servo by; the sum of increment and current has to be within the range -100 to 100 (inclusive) (as servo can operate in range of a current value from -100 to 100) 
+ */
+void TFC_MoveServo(float *current, float increment)
+{
+	if(increment+*current<=100 && increment+*current>=-100)
+	{
+		//move as instructed; increment
+		TFC_SetServoDutyCycle(((((*current+increment) + 100)/200.0)*(SERVO_MAX_DUTY_CYCLE - SERVO_MIN_DUTY_CYCLE))+SERVO_MIN_DUTY_CYCLE);
+		*current+=increment;
+	}
+}
+
+/**
+ * TFC_SetServoC: Sets servo to certain angle
+ * 
+ * current: current position stored in main and passed to function using an ampersand (e.g. TFC_MoveServo(&a,20.0);)
+ * setTo: position you want to set to; between -100 and 100 (inclusive); -100: left, 100: right
+ */
+void TFC_SetServoC(float *current, float setTo)
+{
+	if(setTo<=100 && setTo>=-100)
+	{
+		//move as instructed; increment
+		TFC_SetServoDutyCycle((((setTo + 100)/200.0)*(SERVO_MAX_DUTY_CYCLE - SERVO_MIN_DUTY_CYCLE))+SERVO_MIN_DUTY_CYCLE);
+		*current=setTo;
+	}
 }
 
 void TFC_InitServos()
@@ -82,13 +104,11 @@ void TFC_InitServos()
                //Setup Channels 0 and 1
                
                TPM1_C0SC = TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK;
-               TPM1_C1SC = TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK;
                
                //Enable the Counter
                
                //Set the Default duty cycle to servo neutral
-               TFC_SetServo(0, 0.0);
-               TFC_SetServo(1, 0.0);
+               TFC_SetServo(0.0);
                
                //Enable the TPM COunter
                TPM1_SC |= TPM_SC_CMOD(1);
@@ -99,7 +119,5 @@ void TFC_InitServos()
                //Enable the FTM functions on the the port
                
                PORTB_PCR0 = PORT_PCR_MUX(3);
-               PORTB_PCR1 = PORT_PCR_MUX(3);
                               
 }
-
