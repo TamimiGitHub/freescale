@@ -21,23 +21,23 @@
   21              		.thumb_func
   23              	TFC_InitMotorPWM:
   24              	.LFB0:
-  25              		.file 1 "../Sources/TFC/TFC_Motor.c"
-   1:../Sources/TFC/TFC_Motor.c **** #include "TFC\TFC.h"
-   2:../Sources/TFC/TFC_Motor.c **** #include "derivative.h"
-   3:../Sources/TFC/TFC_Motor.c **** 
-   4:../Sources/TFC/TFC_Motor.c **** 
-   5:../Sources/TFC/TFC_Motor.c **** #define FTM0_MOD_VALUE	(int)((float)(PERIPHERAL_BUS_CLOCK)/TFC_MOTOR_SWITCHING_FREQUENCY)
-   6:../Sources/TFC/TFC_Motor.c **** 
-   7:../Sources/TFC/TFC_Motor.c **** #define FTM0_CLOCK                                   	      (CORE_CLOCK/2)
-   8:../Sources/TFC/TFC_Motor.c **** #define FTM0_CLK_PRESCALE                                 	   0  // Prescale Selector value - see c
-   9:../Sources/TFC/TFC_Motor.c **** #define FTM0_OVERFLOW_FREQUENCY 5000							  //
-  10:../Sources/TFC/TFC_Motor.c **** 
-  11:../Sources/TFC/TFC_Motor.c **** 
-  12:../Sources/TFC/TFC_Motor.c **** /**********************************************************************************************/
-  13:../Sources/TFC/TFC_Motor.c **** 
-  14:../Sources/TFC/TFC_Motor.c **** 
-  15:../Sources/TFC/TFC_Motor.c **** void TFC_InitMotorPWM()
-  16:../Sources/TFC/TFC_Motor.c **** {
+  25              		.file 1 "../sources/TFC/TFC_Motor.c"
+   1:../sources/TFC/TFC_Motor.c **** #include "TFC\TFC.h"
+   2:../sources/TFC/TFC_Motor.c **** #include "derivative.h"
+   3:../sources/TFC/TFC_Motor.c **** 
+   4:../sources/TFC/TFC_Motor.c **** 
+   5:../sources/TFC/TFC_Motor.c **** #define FTM0_MOD_VALUE	(int)((float)(PERIPHERAL_BUS_CLOCK)/TFC_MOTOR_SWITCHING_FREQUENCY)
+   6:../sources/TFC/TFC_Motor.c **** 
+   7:../sources/TFC/TFC_Motor.c **** #define FTM0_CLOCK                                   	      (CORE_CLOCK/2)
+   8:../sources/TFC/TFC_Motor.c **** #define FTM0_CLK_PRESCALE                                 	   0  // Prescale Selector value - see c
+   9:../sources/TFC/TFC_Motor.c **** #define FTM0_OVERFLOW_FREQUENCY 5000							  //
+  10:../sources/TFC/TFC_Motor.c **** 
+  11:../sources/TFC/TFC_Motor.c **** 
+  12:../sources/TFC/TFC_Motor.c **** /**********************************************************************************************/
+  13:../sources/TFC/TFC_Motor.c **** 
+  14:../sources/TFC/TFC_Motor.c **** 
+  15:../sources/TFC/TFC_Motor.c **** void TFC_InitMotorPWM()
+  16:../sources/TFC/TFC_Motor.c **** {
   26              		.loc 1 16 0
   27              		.cfi_startproc
   28 0000 80B5     		push	{r7, lr}
@@ -48,12 +48,12 @@
   33 0002 00AF     		add	r7, sp, #0
   34              	.LCFI1:
   35              		.cfi_def_cfa_register 7
-  17:../Sources/TFC/TFC_Motor.c **** 	//Clock Setup for the TPM requires a couple steps.
-  18:../Sources/TFC/TFC_Motor.c **** 
-  19:../Sources/TFC/TFC_Motor.c **** 	
-  20:../Sources/TFC/TFC_Motor.c ****     //1st,  set the clock mux
-  21:../Sources/TFC/TFC_Motor.c ****     //See Page 124 of f the KL25 Sub-Family Reference Manual, Rev. 3, September 2012
-  22:../Sources/TFC/TFC_Motor.c ****     SIM_SOPT2 |= SIM_SOPT2_PLLFLLSEL_MASK;// We Want MCGPLLCLK/2 (See Page 196 of the KL25 Sub-Fami
+  17:../sources/TFC/TFC_Motor.c **** 	//Clock Setup for the TPM requires a couple steps.
+  18:../sources/TFC/TFC_Motor.c **** 
+  19:../sources/TFC/TFC_Motor.c **** 	
+  20:../sources/TFC/TFC_Motor.c ****     //1st,  set the clock mux
+  21:../sources/TFC/TFC_Motor.c ****     //See Page 124 of f the KL25 Sub-Family Reference Manual, Rev. 3, September 2012
+  22:../sources/TFC/TFC_Motor.c ****     SIM_SOPT2 |= SIM_SOPT2_PLLFLLSEL_MASK;// We Want MCGPLLCLK/2 (See Page 196 of the KL25 Sub-Fami
   36              		.loc 1 22 0
   37 0004 2D4A     		ldr	r2, .L2
   38 0006 2D49     		ldr	r1, .L2
@@ -64,7 +64,7 @@
   43 0010 1943     		orr	r1, r3
   44 0012 2B4B     		ldr	r3, .L2+4
   45 0014 D150     		str	r1, [r2, r3]
-  23:../Sources/TFC/TFC_Motor.c ****     SIM_SOPT2 &= ~(SIM_SOPT2_TPMSRC_MASK);
+  23:../sources/TFC/TFC_Motor.c ****     SIM_SOPT2 &= ~(SIM_SOPT2_TPMSRC_MASK);
   46              		.loc 1 23 0
   47 0016 294A     		ldr	r2, .L2
   48 0018 2849     		ldr	r1, .L2
@@ -74,7 +74,7 @@
   52 0020 1940     		and	r1, r3
   53 0022 274B     		ldr	r3, .L2+4
   54 0024 D150     		str	r1, [r2, r3]
-  24:../Sources/TFC/TFC_Motor.c ****     SIM_SOPT2 |= SIM_SOPT2_TPMSRC(1); //We want the MCGPLLCLK/2 (See Page 196 of the KL25 Sub-Famil
+  24:../sources/TFC/TFC_Motor.c ****     SIM_SOPT2 |= SIM_SOPT2_TPMSRC(1); //We want the MCGPLLCLK/2 (See Page 196 of the KL25 Sub-Famil
   55              		.loc 1 24 0
   56 0026 254A     		ldr	r2, .L2
   57 0028 2449     		ldr	r1, .L2
@@ -85,11 +85,11 @@
   62 0032 1943     		orr	r1, r3
   63 0034 224B     		ldr	r3, .L2+4
   64 0036 D150     		str	r1, [r2, r3]
-  25:../Sources/TFC/TFC_Motor.c **** 
-  26:../Sources/TFC/TFC_Motor.c **** 
-  27:../Sources/TFC/TFC_Motor.c **** 	//Enable the Clock to the FTM0 Module
-  28:../Sources/TFC/TFC_Motor.c **** 	//See Page 207 of f the KL25 Sub-Family Reference Manual, Rev. 3, September 2012
-  29:../Sources/TFC/TFC_Motor.c **** 	SIM_SCGC6 |= SIM_SCGC6_TPM0_MASK;
+  25:../sources/TFC/TFC_Motor.c **** 
+  26:../sources/TFC/TFC_Motor.c **** 
+  27:../sources/TFC/TFC_Motor.c **** 	//Enable the Clock to the FTM0 Module
+  28:../sources/TFC/TFC_Motor.c **** 	//See Page 207 of f the KL25 Sub-Family Reference Manual, Rev. 3, September 2012
+  29:../sources/TFC/TFC_Motor.c **** 	SIM_SCGC6 |= SIM_SCGC6_TPM0_MASK;
   65              		.loc 1 29 0
   66 0038 204A     		ldr	r2, .L2
   67 003a 2049     		ldr	r1, .L2
@@ -100,75 +100,75 @@
   72 0044 1943     		orr	r1, r3
   73 0046 204B     		ldr	r3, .L2+12
   74 0048 D150     		str	r1, [r2, r3]
-  30:../Sources/TFC/TFC_Motor.c ****     
-  31:../Sources/TFC/TFC_Motor.c ****     //The TPM Module has Clock.  Now set up the peripheral
-  32:../Sources/TFC/TFC_Motor.c ****     
-  33:../Sources/TFC/TFC_Motor.c ****     //Blow away the control registers to ensure that the counter is not running
-  34:../Sources/TFC/TFC_Motor.c ****     TPM0_SC = 0;
+  30:../sources/TFC/TFC_Motor.c ****     
+  31:../sources/TFC/TFC_Motor.c ****     //The TPM Module has Clock.  Now set up the peripheral
+  32:../sources/TFC/TFC_Motor.c ****     
+  33:../sources/TFC/TFC_Motor.c ****     //Blow away the control registers to ensure that the counter is not running
+  34:../sources/TFC/TFC_Motor.c ****     TPM0_SC = 0;
   75              		.loc 1 34 0
   76 004a 204B     		ldr	r3, .L2+16
   77 004c 0022     		mov	r2, #0
   78 004e 1A60     		str	r2, [r3]
-  35:../Sources/TFC/TFC_Motor.c ****     TPM0_CONF = 0;
+  35:../sources/TFC/TFC_Motor.c ****     TPM0_CONF = 0;
   79              		.loc 1 35 0
   80 0050 1E4A     		ldr	r2, .L2+16
   81 0052 8423     		mov	r3, #132
   82 0054 0021     		mov	r1, #0
   83 0056 D150     		str	r1, [r2, r3]
-  36:../Sources/TFC/TFC_Motor.c ****     
-  37:../Sources/TFC/TFC_Motor.c ****     //While the counter is disabled we can setup the prescaler
-  38:../Sources/TFC/TFC_Motor.c ****     
-  39:../Sources/TFC/TFC_Motor.c ****     TPM0_SC = TPM_SC_PS(FTM0_CLK_PRESCALE);
+  36:../sources/TFC/TFC_Motor.c ****     
+  37:../sources/TFC/TFC_Motor.c ****     //While the counter is disabled we can setup the prescaler
+  38:../sources/TFC/TFC_Motor.c ****     
+  39:../sources/TFC/TFC_Motor.c ****     TPM0_SC = TPM_SC_PS(FTM0_CLK_PRESCALE);
   84              		.loc 1 39 0
   85 0058 1C4B     		ldr	r3, .L2+16
   86 005a 0022     		mov	r2, #0
   87 005c 1A60     		str	r2, [r3]
-  40:../Sources/TFC/TFC_Motor.c ****     
-  41:../Sources/TFC/TFC_Motor.c ****     //Setup the mod register to get the correct PWM Period
-  42:../Sources/TFC/TFC_Motor.c ****     
-  43:../Sources/TFC/TFC_Motor.c ****     TPM0_MOD = FTM0_CLOCK/(1<<FTM0_CLK_PRESCALE)/FTM0_OVERFLOW_FREQUENCY;
+  40:../sources/TFC/TFC_Motor.c ****     
+  41:../sources/TFC/TFC_Motor.c ****     //Setup the mod register to get the correct PWM Period
+  42:../sources/TFC/TFC_Motor.c ****     
+  43:../sources/TFC/TFC_Motor.c ****     TPM0_MOD = FTM0_CLOCK/(1<<FTM0_CLK_PRESCALE)/FTM0_OVERFLOW_FREQUENCY;
   88              		.loc 1 43 0
   89 005e 1B4B     		ldr	r3, .L2+16
   90 0060 9622     		mov	r2, #150
   91 0062 5201     		lsl	r2, r2, #5
   92 0064 9A60     		str	r2, [r3, #8]
-  44:../Sources/TFC/TFC_Motor.c ****     
-  45:../Sources/TFC/TFC_Motor.c ****     //Setup Channels 0,1,2,3
-  46:../Sources/TFC/TFC_Motor.c ****     TPM0_C0SC = TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK;
+  44:../sources/TFC/TFC_Motor.c ****     
+  45:../sources/TFC/TFC_Motor.c ****     //Setup Channels 0,1,2,3
+  46:../sources/TFC/TFC_Motor.c ****     TPM0_C0SC = TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK;
   93              		.loc 1 46 0
   94 0066 194B     		ldr	r3, .L2+16
   95 0068 2822     		mov	r2, #40
   96 006a DA60     		str	r2, [r3, #12]
-  47:../Sources/TFC/TFC_Motor.c ****     TPM0_C1SC = TPM_CnSC_MSB_MASK | TPM_CnSC_ELSA_MASK; // invert the second PWM signal for a compl
+  47:../sources/TFC/TFC_Motor.c ****     TPM0_C1SC = TPM_CnSC_MSB_MASK | TPM_CnSC_ELSA_MASK; // invert the second PWM signal for a compl
   97              		.loc 1 47 0
   98 006c 174B     		ldr	r3, .L2+16
   99 006e 2422     		mov	r2, #36
  100 0070 5A61     		str	r2, [r3, #20]
-  48:../Sources/TFC/TFC_Motor.c ****     TPM0_C2SC = TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK;
+  48:../sources/TFC/TFC_Motor.c ****     TPM0_C2SC = TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK;
  101              		.loc 1 48 0
  102 0072 164B     		ldr	r3, .L2+16
  103 0074 2822     		mov	r2, #40
  104 0076 DA61     		str	r2, [r3, #28]
-  49:../Sources/TFC/TFC_Motor.c ****     TPM0_C3SC = TPM_CnSC_MSB_MASK | TPM_CnSC_ELSA_MASK; // invert the second PWM signal for a compl
+  49:../sources/TFC/TFC_Motor.c ****     TPM0_C3SC = TPM_CnSC_MSB_MASK | TPM_CnSC_ELSA_MASK; // invert the second PWM signal for a compl
  105              		.loc 1 49 0
  106 0078 144B     		ldr	r3, .L2+16
  107 007a 2422     		mov	r2, #36
  108 007c 5A62     		str	r2, [r3, #36]
-  50:../Sources/TFC/TFC_Motor.c ****     
-  51:../Sources/TFC/TFC_Motor.c ****     
-  52:../Sources/TFC/TFC_Motor.c ****     //Enable the Counter
-  53:../Sources/TFC/TFC_Motor.c ****     
-  54:../Sources/TFC/TFC_Motor.c ****     //Set the Default duty cycle to 50% duty cycle
-  55:../Sources/TFC/TFC_Motor.c ****     TFC_SetMotorPWM(0.0,0.0);
+  50:../sources/TFC/TFC_Motor.c ****     
+  51:../sources/TFC/TFC_Motor.c ****     
+  52:../sources/TFC/TFC_Motor.c ****     //Enable the Counter
+  53:../sources/TFC/TFC_Motor.c ****     
+  54:../sources/TFC/TFC_Motor.c ****     //Set the Default duty cycle to 50% duty cycle
+  55:../sources/TFC/TFC_Motor.c ****     TFC_SetMotorPWM(0.0,0.0);
  109              		.loc 1 55 0
  110 007e 0022     		mov	r2, #0
  111 0080 0023     		mov	r3, #0
  112 0082 101C     		add	r0, r2, #0
  113 0084 191C     		add	r1, r3, #0
  114 0086 FFF7FEFF 		bl	TFC_SetMotorPWM
-  56:../Sources/TFC/TFC_Motor.c ****     
-  57:../Sources/TFC/TFC_Motor.c ****     //Enable the TPM COunter
-  58:../Sources/TFC/TFC_Motor.c ****     TPM0_SC |= TPM_SC_CMOD(1);
+  56:../sources/TFC/TFC_Motor.c ****     
+  57:../sources/TFC/TFC_Motor.c ****     //Enable the TPM COunter
+  58:../sources/TFC/TFC_Motor.c ****     TPM0_SC |= TPM_SC_CMOD(1);
  115              		.loc 1 58 0
  116 008a 104B     		ldr	r3, .L2+16
  117 008c 0F4A     		ldr	r2, .L2+16
@@ -176,35 +176,35 @@
  119 0090 0821     		mov	r1, #8
  120 0092 0A43     		orr	r2, r1
  121 0094 1A60     		str	r2, [r3]
-  59:../Sources/TFC/TFC_Motor.c ****     
-  60:../Sources/TFC/TFC_Motor.c ****     
-  61:../Sources/TFC/TFC_Motor.c ****     //Enable the FTM functions on the the port
-  62:../Sources/TFC/TFC_Motor.c ****     PORTC_PCR1 = PORT_PCR_MUX(4);
+  59:../sources/TFC/TFC_Motor.c ****     
+  60:../sources/TFC/TFC_Motor.c ****     
+  61:../sources/TFC/TFC_Motor.c ****     //Enable the FTM functions on the the port
+  62:../sources/TFC/TFC_Motor.c ****     PORTC_PCR1 = PORT_PCR_MUX(4);
  122              		.loc 1 62 0
  123 0096 0E4B     		ldr	r3, .L2+20
  124 0098 8022     		mov	r2, #128
  125 009a D200     		lsl	r2, r2, #3
  126 009c 5A60     		str	r2, [r3, #4]
-  63:../Sources/TFC/TFC_Motor.c ****     PORTC_PCR2 = PORT_PCR_MUX(4);     
+  63:../sources/TFC/TFC_Motor.c ****     PORTC_PCR2 = PORT_PCR_MUX(4);     
  127              		.loc 1 63 0
  128 009e 0C4B     		ldr	r3, .L2+20
  129 00a0 8022     		mov	r2, #128
  130 00a2 D200     		lsl	r2, r2, #3
  131 00a4 9A60     		str	r2, [r3, #8]
-  64:../Sources/TFC/TFC_Motor.c ****     PORTC_PCR3 = PORT_PCR_MUX(4);  
+  64:../sources/TFC/TFC_Motor.c ****     PORTC_PCR3 = PORT_PCR_MUX(4);  
  132              		.loc 1 64 0
  133 00a6 0A4B     		ldr	r3, .L2+20
  134 00a8 8022     		mov	r2, #128
  135 00aa D200     		lsl	r2, r2, #3
  136 00ac DA60     		str	r2, [r3, #12]
-  65:../Sources/TFC/TFC_Motor.c ****     PORTC_PCR4 = PORT_PCR_MUX(4);  
+  65:../sources/TFC/TFC_Motor.c ****     PORTC_PCR4 = PORT_PCR_MUX(4);  
  137              		.loc 1 65 0
  138 00ae 084B     		ldr	r3, .L2+20
  139 00b0 8022     		mov	r2, #128
  140 00b2 D200     		lsl	r2, r2, #3
  141 00b4 1A61     		str	r2, [r3, #16]
-  66:../Sources/TFC/TFC_Motor.c **** 
-  67:../Sources/TFC/TFC_Motor.c **** }
+  66:../sources/TFC/TFC_Motor.c **** 
+  67:../sources/TFC/TFC_Motor.c **** }
  142              		.loc 1 67 0
  143 00b6 BD46     		mov	sp, r7
  144              		@ sp needed for prologue
@@ -236,11 +236,11 @@
  171              		.thumb_func
  173              	TFC_SetMotorPWM:
  174              	.LFB1:
-  68:../Sources/TFC/TFC_Motor.c **** 
-  69:../Sources/TFC/TFC_Motor.c **** 
-  70:../Sources/TFC/TFC_Motor.c **** 
-  71:../Sources/TFC/TFC_Motor.c **** void TFC_SetMotorPWM(float MotorA , float MotorB)
-  72:../Sources/TFC/TFC_Motor.c **** {
+  68:../sources/TFC/TFC_Motor.c **** 
+  69:../sources/TFC/TFC_Motor.c **** 
+  70:../sources/TFC/TFC_Motor.c **** 
+  71:../sources/TFC/TFC_Motor.c **** void TFC_SetMotorPWM(float MotorA , float MotorB)
+  72:../sources/TFC/TFC_Motor.c **** {
  175              		.loc 1 72 0
  176              		.cfi_startproc
  177 0000 F0B5     		push	{r4, r5, r6, r7, lr}
@@ -259,8 +259,8 @@
  190              		.cfi_def_cfa_register 7
  191 0006 7860     		str	r0, [r7, #4]
  192 0008 3960     		str	r1, [r7]
-  73:../Sources/TFC/TFC_Motor.c **** 	
-  74:../Sources/TFC/TFC_Motor.c **** 	if(MotorA>1.0)
+  73:../sources/TFC/TFC_Motor.c **** 	
+  74:../sources/TFC/TFC_Motor.c **** 	if(MotorA>1.0)
  193              		.loc 1 74 0
  194 000a 7868     		ldr	r0, [r7, #4]
  195 000c FE21     		mov	r1, #254
@@ -270,14 +270,14 @@
  199 0016 002B     		cmp	r3, #0
  200 0018 03D0     		beq	.L17
  201              	.L13:
-  75:../Sources/TFC/TFC_Motor.c **** 		MotorA = 1.0;
+  75:../sources/TFC/TFC_Motor.c **** 		MotorA = 1.0;
  202              		.loc 1 75 0
  203 001a FE23     		mov	r3, #254
  204 001c 9B05     		lsl	r3, r3, #22
  205 001e 7B60     		str	r3, [r7, #4]
  206 0020 08E0     		b	.L7
  207              	.L17:
-  76:../Sources/TFC/TFC_Motor.c **** 	else if(MotorA<-1.0)
+  76:../sources/TFC/TFC_Motor.c **** 	else if(MotorA<-1.0)
  208              		.loc 1 76 0
  209 0022 7868     		ldr	r0, [r7, #4]
  210 0024 4449     		ldr	r1, .L19+16
@@ -286,13 +286,13 @@
  213 002c 002B     		cmp	r3, #0
  214 002e 01D0     		beq	.L7
  215              	.L14:
-  77:../Sources/TFC/TFC_Motor.c **** 		MotorA = -1.0;
+  77:../sources/TFC/TFC_Motor.c **** 		MotorA = -1.0;
  216              		.loc 1 77 0
  217 0030 414B     		ldr	r3, .L19+16
  218 0032 7B60     		str	r3, [r7, #4]
  219              	.L7:
-  78:../Sources/TFC/TFC_Motor.c **** 	
-  79:../Sources/TFC/TFC_Motor.c **** 	if(MotorB>1.0)
+  78:../sources/TFC/TFC_Motor.c **** 	
+  79:../sources/TFC/TFC_Motor.c **** 	if(MotorB>1.0)
  220              		.loc 1 79 0
  221 0034 3868     		ldr	r0, [r7]
  222 0036 FE21     		mov	r1, #254
@@ -302,14 +302,14 @@
  226 0040 002B     		cmp	r3, #0
  227 0042 03D0     		beq	.L18
  228              	.L15:
-  80:../Sources/TFC/TFC_Motor.c **** 			MotorB = 1.0;
+  80:../sources/TFC/TFC_Motor.c **** 			MotorB = 1.0;
  229              		.loc 1 80 0
  230 0044 FE23     		mov	r3, #254
  231 0046 9B05     		lsl	r3, r3, #22
  232 0048 3B60     		str	r3, [r7]
  233 004a 08E0     		b	.L11
  234              	.L18:
-  81:../Sources/TFC/TFC_Motor.c **** 		else if(MotorB<-1.0)
+  81:../sources/TFC/TFC_Motor.c **** 		else if(MotorB<-1.0)
  235              		.loc 1 81 0
  236 004c 3868     		ldr	r0, [r7]
  237 004e 3A49     		ldr	r1, .L19+16
@@ -318,13 +318,13 @@
  240 0056 002B     		cmp	r3, #0
  241 0058 01D0     		beq	.L11
  242              	.L16:
-  82:../Sources/TFC/TFC_Motor.c **** 			MotorB = -1.0;
+  82:../sources/TFC/TFC_Motor.c **** 			MotorB = -1.0;
  243              		.loc 1 82 0
  244 005a 374B     		ldr	r3, .L19+16
  245 005c 3B60     		str	r3, [r7]
  246              	.L11:
-  83:../Sources/TFC/TFC_Motor.c **** 		
-  84:../Sources/TFC/TFC_Motor.c **** 	TPM0_C2V = (uint16_t) ((float)TPM0_MOD * (float)((MotorA + 1.0)/2.0));
+  83:../sources/TFC/TFC_Motor.c **** 		
+  84:../sources/TFC/TFC_Motor.c **** 	TPM0_C2V = (uint16_t) ((float)TPM0_MOD * (float)((MotorA + 1.0)/2.0));
  247              		.loc 1 84 0
  248 005e 374D     		ldr	r5, .L19+20
  249 0060 364B     		ldr	r3, .L19+20
@@ -363,13 +363,13 @@
  282 00b0 031C     		mov	r3, r0
  283 00b2 9BB2     		uxth	r3, r3
  284 00b4 2B62     		str	r3, [r5, #32]
-  85:../Sources/TFC/TFC_Motor.c **** 	TPM0_C3V = TPM0_C2V;
+  85:../sources/TFC/TFC_Motor.c **** 	TPM0_C3V = TPM0_C2V;
  285              		.loc 1 85 0
  286 00b6 214B     		ldr	r3, .L19+20
  287 00b8 204A     		ldr	r2, .L19+20
  288 00ba 126A     		ldr	r2, [r2, #32]
  289 00bc 9A62     		str	r2, [r3, #40]
-  86:../Sources/TFC/TFC_Motor.c **** 	TPM0_C0V = (uint16_t) ((float)TPM0_MOD * (float)((MotorB + 1.0)/2.0));
+  86:../sources/TFC/TFC_Motor.c **** 	TPM0_C0V = (uint16_t) ((float)TPM0_MOD * (float)((MotorB + 1.0)/2.0));
  290              		.loc 1 86 0
  291 00be 1F4D     		ldr	r5, .L19+20
  292 00c0 1E4B     		ldr	r3, .L19+20
@@ -408,14 +408,14 @@
  325 0110 031C     		mov	r3, r0
  326 0112 9BB2     		uxth	r3, r3
  327 0114 2B61     		str	r3, [r5, #16]
-  87:../Sources/TFC/TFC_Motor.c **** 	TPM0_C1V = TPM0_C0V;
+  87:../sources/TFC/TFC_Motor.c **** 	TPM0_C1V = TPM0_C0V;
  328              		.loc 1 87 0
  329 0116 094B     		ldr	r3, .L19+20
  330 0118 084A     		ldr	r2, .L19+20
  331 011a 1269     		ldr	r2, [r2, #16]
  332 011c 9A61     		str	r2, [r3, #24]
-  88:../Sources/TFC/TFC_Motor.c **** 
-  89:../Sources/TFC/TFC_Motor.c **** }
+  88:../sources/TFC/TFC_Motor.c **** 
+  89:../sources/TFC/TFC_Motor.c **** }
  333              		.loc 1 89 0
  334 011e BD46     		mov	sp, r7
  335 0120 03B0     		add	sp, sp, #12
@@ -434,16 +434,16 @@
  348              	.LFE1:
  350              		.text
  351              	.Letext0:
- 352              		.file 2 "C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
- 353              		.file 3 "D:/ELI/BUSINESS/CLIENT_DATA/FREESCALE/frdm-tfc__google-code/DEVELOPMENT_TRUNK/FRDM-TFC/Pr
+ 352              		.file 2 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 353              		.file 3 "H:/git/freescale/Project_Headers/MKL25Z4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 TFC_Motor.c
-C:\Users\ehughes\AppData\Local\Temp\ccRl4CjA.s:18     .text.TFC_InitMotorPWM:00000000 $t
-C:\Users\ehughes\AppData\Local\Temp\ccRl4CjA.s:23     .text.TFC_InitMotorPWM:00000000 TFC_InitMotorPWM
-C:\Users\ehughes\AppData\Local\Temp\ccRl4CjA.s:173    .text.TFC_SetMotorPWM:00000000 TFC_SetMotorPWM
-C:\Users\ehughes\AppData\Local\Temp\ccRl4CjA.s:149    .text.TFC_InitMotorPWM:000000bc $d
-C:\Users\ehughes\AppData\Local\Temp\ccRl4CjA.s:168    .text.TFC_SetMotorPWM:00000000 $t
-C:\Users\ehughes\AppData\Local\Temp\ccRl4CjA.s:341    .text.TFC_SetMotorPWM:00000128 $d
+C:\Users\calla\AppData\Local\Temp\cc3wpXtb.s:18     .text.TFC_InitMotorPWM:00000000 $t
+C:\Users\calla\AppData\Local\Temp\cc3wpXtb.s:23     .text.TFC_InitMotorPWM:00000000 TFC_InitMotorPWM
+C:\Users\calla\AppData\Local\Temp\cc3wpXtb.s:173    .text.TFC_SetMotorPWM:00000000 TFC_SetMotorPWM
+C:\Users\calla\AppData\Local\Temp\cc3wpXtb.s:149    .text.TFC_InitMotorPWM:000000bc $d
+C:\Users\calla\AppData\Local\Temp\cc3wpXtb.s:168    .text.TFC_SetMotorPWM:00000000 $t
+C:\Users\calla\AppData\Local\Temp\cc3wpXtb.s:341    .text.TFC_SetMotorPWM:00000128 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

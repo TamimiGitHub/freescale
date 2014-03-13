@@ -21,12 +21,12 @@
   21              		.thumb_func
   23              	stop:
   24              	.LFB0:
-  25              		.file 1 "../Sources/TFC/TFC_arm_cm0.c"
-   1:../Sources/TFC/TFC_arm_cm0.c **** #include "derivative.h"
-   2:../Sources/TFC/TFC_arm_cm0.c **** #include "TFC\TFC_arm_cm0.h"
-   3:../Sources/TFC/TFC_arm_cm0.c **** 
-   4:../Sources/TFC/TFC_arm_cm0.c **** void stop (void)
-   5:../Sources/TFC/TFC_arm_cm0.c **** {
+  25              		.file 1 "../sources/TFC/TFC_arm_cm0.c"
+   1:../sources/TFC/TFC_arm_cm0.c **** #include "derivative.h"
+   2:../sources/TFC/TFC_arm_cm0.c **** #include "TFC\TFC_arm_cm0.h"
+   3:../sources/TFC/TFC_arm_cm0.c **** 
+   4:../sources/TFC/TFC_arm_cm0.c **** void stop (void)
+   5:../sources/TFC/TFC_arm_cm0.c **** {
   26              		.loc 1 5 0
   27              		.cfi_startproc
   28 0000 80B5     		push	{r7, lr}
@@ -37,8 +37,8 @@
   33 0002 00AF     		add	r7, sp, #0
   34              	.LCFI1:
   35              		.cfi_def_cfa_register 7
-   6:../Sources/TFC/TFC_arm_cm0.c **** 	/* Set the SLEEPDEEP bit to enable deep sleep mode (STOP) */
-   7:../Sources/TFC/TFC_arm_cm0.c **** 	SCB_SCR |= SCB_SCR_SLEEPDEEP_MASK;	
+   6:../sources/TFC/TFC_arm_cm0.c **** 	/* Set the SLEEPDEEP bit to enable deep sleep mode (STOP) */
+   7:../sources/TFC/TFC_arm_cm0.c **** 	SCB_SCR |= SCB_SCR_SLEEPDEEP_MASK;	
   36              		.loc 1 7 0
   37 0004 064A     		ldr	r2, .L2
   38 0006 0649     		ldr	r1, .L2
@@ -50,20 +50,20 @@
   44 0012 D123     		mov	r3, #209
   45 0014 1B01     		lsl	r3, r3, #4
   46 0016 D150     		str	r1, [r2, r3]
-   8:../Sources/TFC/TFC_arm_cm0.c **** 
-   9:../Sources/TFC/TFC_arm_cm0.c **** 	/* WFI instruction will start entry into STOP mode */
-  10:../Sources/TFC/TFC_arm_cm0.c **** #ifndef KEIL
-  11:../Sources/TFC/TFC_arm_cm0.c ****         // If not using KEIL's uVision use the standard assembly command
-  12:../Sources/TFC/TFC_arm_cm0.c **** 	asm("WFI");
+   8:../sources/TFC/TFC_arm_cm0.c **** 
+   9:../sources/TFC/TFC_arm_cm0.c **** 	/* WFI instruction will start entry into STOP mode */
+  10:../sources/TFC/TFC_arm_cm0.c **** #ifndef KEIL
+  11:../sources/TFC/TFC_arm_cm0.c ****         // If not using KEIL's uVision use the standard assembly command
+  12:../sources/TFC/TFC_arm_cm0.c **** 	asm("WFI");
   47              		.loc 1 12 0
-  48              	@ 12 "../Sources/TFC/TFC_arm_cm0.c" 1
+  48              	@ 12 "../sources/TFC/TFC_arm_cm0.c" 1
   49 0018 30BF     		WFI
   50              	@ 0 "" 2
-  13:../Sources/TFC/TFC_arm_cm0.c **** #else
-  14:../Sources/TFC/TFC_arm_cm0.c ****         // If using KEIL's uVision, use the CMSIS intrinsic
-  15:../Sources/TFC/TFC_arm_cm0.c **** 	__wfi();
-  16:../Sources/TFC/TFC_arm_cm0.c **** #endif
-  17:../Sources/TFC/TFC_arm_cm0.c **** }
+  13:../sources/TFC/TFC_arm_cm0.c **** #else
+  14:../sources/TFC/TFC_arm_cm0.c ****         // If using KEIL's uVision, use the CMSIS intrinsic
+  15:../sources/TFC/TFC_arm_cm0.c **** 	__wfi();
+  16:../sources/TFC/TFC_arm_cm0.c **** #endif
+  17:../sources/TFC/TFC_arm_cm0.c **** }
   51              		.loc 1 17 0
   52              		.code	16
   53 001a BD46     		mov	sp, r7
@@ -82,20 +82,20 @@
   67              		.thumb_func
   69              	wait:
   70              	.LFB1:
-  18:../Sources/TFC/TFC_arm_cm0.c **** /***********************************************************************/
-  19:../Sources/TFC/TFC_arm_cm0.c **** /*
-  20:../Sources/TFC/TFC_arm_cm0.c ****  * Configures the ARM system control register for WAIT (sleep) mode
-  21:../Sources/TFC/TFC_arm_cm0.c ****  * and then executes the WFI instruction to enter the mode.
-  22:../Sources/TFC/TFC_arm_cm0.c ****  *
-  23:../Sources/TFC/TFC_arm_cm0.c ****  * Parameters:
-  24:../Sources/TFC/TFC_arm_cm0.c ****  * none
-  25:../Sources/TFC/TFC_arm_cm0.c ****  *
-  26:../Sources/TFC/TFC_arm_cm0.c ****  * Note: Might want to change this later to allow for passing in a parameter
-  27:../Sources/TFC/TFC_arm_cm0.c ****  *       to optionally set the sleep on exit bit.
-  28:../Sources/TFC/TFC_arm_cm0.c ****  */
-  29:../Sources/TFC/TFC_arm_cm0.c **** 
-  30:../Sources/TFC/TFC_arm_cm0.c **** void wait (void)
-  31:../Sources/TFC/TFC_arm_cm0.c **** {
+  18:../sources/TFC/TFC_arm_cm0.c **** /***********************************************************************/
+  19:../sources/TFC/TFC_arm_cm0.c **** /*
+  20:../sources/TFC/TFC_arm_cm0.c ****  * Configures the ARM system control register for WAIT (sleep) mode
+  21:../sources/TFC/TFC_arm_cm0.c ****  * and then executes the WFI instruction to enter the mode.
+  22:../sources/TFC/TFC_arm_cm0.c ****  *
+  23:../sources/TFC/TFC_arm_cm0.c ****  * Parameters:
+  24:../sources/TFC/TFC_arm_cm0.c ****  * none
+  25:../sources/TFC/TFC_arm_cm0.c ****  *
+  26:../sources/TFC/TFC_arm_cm0.c ****  * Note: Might want to change this later to allow for passing in a parameter
+  27:../sources/TFC/TFC_arm_cm0.c ****  *       to optionally set the sleep on exit bit.
+  28:../sources/TFC/TFC_arm_cm0.c ****  */
+  29:../sources/TFC/TFC_arm_cm0.c **** 
+  30:../sources/TFC/TFC_arm_cm0.c **** void wait (void)
+  31:../sources/TFC/TFC_arm_cm0.c **** {
   71              		.loc 1 31 0
   72              		.cfi_startproc
   73 0000 80B5     		push	{r7, lr}
@@ -106,10 +106,10 @@
   78 0002 00AF     		add	r7, sp, #0
   79              	.LCFI3:
   80              		.cfi_def_cfa_register 7
-  32:../Sources/TFC/TFC_arm_cm0.c **** 	/* Clear the SLEEPDEEP bit to make sure we go into WAIT (sleep) mode instead
-  33:../Sources/TFC/TFC_arm_cm0.c **** 	 * of deep sleep.
-  34:../Sources/TFC/TFC_arm_cm0.c **** 	 */
-  35:../Sources/TFC/TFC_arm_cm0.c **** 	SCB_SCR &= ~SCB_SCR_SLEEPDEEP_MASK;	
+  32:../sources/TFC/TFC_arm_cm0.c **** 	/* Clear the SLEEPDEEP bit to make sure we go into WAIT (sleep) mode instead
+  33:../sources/TFC/TFC_arm_cm0.c **** 	 * of deep sleep.
+  34:../sources/TFC/TFC_arm_cm0.c **** 	 */
+  35:../sources/TFC/TFC_arm_cm0.c **** 	SCB_SCR &= ~SCB_SCR_SLEEPDEEP_MASK;	
   81              		.loc 1 35 0
   82 0004 074A     		ldr	r2, .L5
   83 0006 0749     		ldr	r1, .L5
@@ -123,20 +123,20 @@
   91 0016 D123     		mov	r3, #209
   92 0018 1B01     		lsl	r3, r3, #4
   93 001a D150     		str	r1, [r2, r3]
-  36:../Sources/TFC/TFC_arm_cm0.c **** 
-  37:../Sources/TFC/TFC_arm_cm0.c **** 	/* WFI instruction will start entry into WAIT mode */
-  38:../Sources/TFC/TFC_arm_cm0.c **** #ifndef KEIL
-  39:../Sources/TFC/TFC_arm_cm0.c ****         // If not using KEIL's uVision use the standard assembly command
-  40:../Sources/TFC/TFC_arm_cm0.c **** 	asm("WFI");
+  36:../sources/TFC/TFC_arm_cm0.c **** 
+  37:../sources/TFC/TFC_arm_cm0.c **** 	/* WFI instruction will start entry into WAIT mode */
+  38:../sources/TFC/TFC_arm_cm0.c **** #ifndef KEIL
+  39:../sources/TFC/TFC_arm_cm0.c ****         // If not using KEIL's uVision use the standard assembly command
+  40:../sources/TFC/TFC_arm_cm0.c **** 	asm("WFI");
   94              		.loc 1 40 0
-  95              	@ 40 "../Sources/TFC/TFC_arm_cm0.c" 1
+  95              	@ 40 "../sources/TFC/TFC_arm_cm0.c" 1
   96 001c 30BF     		WFI
   97              	@ 0 "" 2
-  41:../Sources/TFC/TFC_arm_cm0.c **** #else
-  42:../Sources/TFC/TFC_arm_cm0.c ****         // If using KEIL's uVision, use the CMSIS intrinsic
-  43:../Sources/TFC/TFC_arm_cm0.c ****     __wfi();
-  44:../Sources/TFC/TFC_arm_cm0.c **** #endif
-  45:../Sources/TFC/TFC_arm_cm0.c **** }
+  41:../sources/TFC/TFC_arm_cm0.c **** #else
+  42:../sources/TFC/TFC_arm_cm0.c ****         // If using KEIL's uVision, use the CMSIS intrinsic
+  43:../sources/TFC/TFC_arm_cm0.c ****     __wfi();
+  44:../sources/TFC/TFC_arm_cm0.c **** #endif
+  45:../sources/TFC/TFC_arm_cm0.c **** }
   98              		.loc 1 45 0
   99              		.code	16
  100 001e BD46     		mov	sp, r7
@@ -155,16 +155,16 @@
  114              		.thumb_func
  116              	write_vtor:
  117              	.LFB2:
-  46:../Sources/TFC/TFC_arm_cm0.c **** /***********************************************************************/
-  47:../Sources/TFC/TFC_arm_cm0.c **** /*
-  48:../Sources/TFC/TFC_arm_cm0.c ****  * Change the value of the vector table offset register to the specified value.
-  49:../Sources/TFC/TFC_arm_cm0.c ****  *
-  50:../Sources/TFC/TFC_arm_cm0.c ****  * Parameters:
-  51:../Sources/TFC/TFC_arm_cm0.c ****  * vtor     new value to write to the VTOR
-  52:../Sources/TFC/TFC_arm_cm0.c ****  */
-  53:../Sources/TFC/TFC_arm_cm0.c **** 
-  54:../Sources/TFC/TFC_arm_cm0.c **** void write_vtor (int vtor)
-  55:../Sources/TFC/TFC_arm_cm0.c **** {
+  46:../sources/TFC/TFC_arm_cm0.c **** /***********************************************************************/
+  47:../sources/TFC/TFC_arm_cm0.c **** /*
+  48:../sources/TFC/TFC_arm_cm0.c ****  * Change the value of the vector table offset register to the specified value.
+  49:../sources/TFC/TFC_arm_cm0.c ****  *
+  50:../sources/TFC/TFC_arm_cm0.c ****  * Parameters:
+  51:../sources/TFC/TFC_arm_cm0.c ****  * vtor     new value to write to the VTOR
+  52:../sources/TFC/TFC_arm_cm0.c ****  */
+  53:../sources/TFC/TFC_arm_cm0.c **** 
+  54:../sources/TFC/TFC_arm_cm0.c **** void write_vtor (int vtor)
+  55:../sources/TFC/TFC_arm_cm0.c **** {
  118              		.loc 1 55 0
  119              		.cfi_startproc
  120 0000 80B5     		push	{r7, lr}
@@ -179,14 +179,14 @@
  129              	.LCFI6:
  130              		.cfi_def_cfa_register 7
  131 0006 7860     		str	r0, [r7, #4]
-  56:../Sources/TFC/TFC_arm_cm0.c ****         /* Write the VTOR with the new value */
-  57:../Sources/TFC/TFC_arm_cm0.c ****         SCB_VTOR = vtor;	
+  56:../sources/TFC/TFC_arm_cm0.c ****         /* Write the VTOR with the new value */
+  57:../sources/TFC/TFC_arm_cm0.c ****         SCB_VTOR = vtor;	
  132              		.loc 1 57 0
  133 0008 034A     		ldr	r2, .L8
  134 000a 7968     		ldr	r1, [r7, #4]
  135 000c 034B     		ldr	r3, .L8+4
  136 000e D150     		str	r1, [r2, r3]
-  58:../Sources/TFC/TFC_arm_cm0.c **** }
+  58:../sources/TFC/TFC_arm_cm0.c **** }
  137              		.loc 1 58 0
  138 0010 BD46     		mov	sp, r7
  139 0012 02B0     		add	sp, sp, #8
@@ -206,21 +206,21 @@
  154              		.thumb_func
  156              	enable_irq:
  157              	.LFB3:
-  59:../Sources/TFC/TFC_arm_cm0.c **** /***********************************************************************/
-  60:../Sources/TFC/TFC_arm_cm0.c **** /*
-  61:../Sources/TFC/TFC_arm_cm0.c ****  * Initialize the NVIC to enable the specified IRQ.
-  62:../Sources/TFC/TFC_arm_cm0.c ****  * 
-  63:../Sources/TFC/TFC_arm_cm0.c ****  * NOTE: The function only initializes the NVIC to enable a single IRQ. 
-  64:../Sources/TFC/TFC_arm_cm0.c ****  * Interrupts will also need to be enabled in the ARM core. This can be 
-  65:../Sources/TFC/TFC_arm_cm0.c ****  * done using the EnableInterrupts macro.
-  66:../Sources/TFC/TFC_arm_cm0.c ****  *
-  67:../Sources/TFC/TFC_arm_cm0.c ****  * Parameters:
-  68:../Sources/TFC/TFC_arm_cm0.c ****  * irq    irq number to be enabled (the irq number NOT the vector number)
-  69:../Sources/TFC/TFC_arm_cm0.c ****  */
-  70:../Sources/TFC/TFC_arm_cm0.c **** 
-  71:../Sources/TFC/TFC_arm_cm0.c **** #ifndef CMSIS
-  72:../Sources/TFC/TFC_arm_cm0.c **** void enable_irq (int irq)
-  73:../Sources/TFC/TFC_arm_cm0.c **** {   
+  59:../sources/TFC/TFC_arm_cm0.c **** /***********************************************************************/
+  60:../sources/TFC/TFC_arm_cm0.c **** /*
+  61:../sources/TFC/TFC_arm_cm0.c ****  * Initialize the NVIC to enable the specified IRQ.
+  62:../sources/TFC/TFC_arm_cm0.c ****  * 
+  63:../sources/TFC/TFC_arm_cm0.c ****  * NOTE: The function only initializes the NVIC to enable a single IRQ. 
+  64:../sources/TFC/TFC_arm_cm0.c ****  * Interrupts will also need to be enabled in the ARM core. This can be 
+  65:../sources/TFC/TFC_arm_cm0.c ****  * done using the EnableInterrupts macro.
+  66:../sources/TFC/TFC_arm_cm0.c ****  *
+  67:../sources/TFC/TFC_arm_cm0.c ****  * Parameters:
+  68:../sources/TFC/TFC_arm_cm0.c ****  * irq    irq number to be enabled (the irq number NOT the vector number)
+  69:../sources/TFC/TFC_arm_cm0.c ****  */
+  70:../sources/TFC/TFC_arm_cm0.c **** 
+  71:../sources/TFC/TFC_arm_cm0.c **** #ifndef CMSIS
+  72:../sources/TFC/TFC_arm_cm0.c **** void enable_irq (int irq)
+  73:../sources/TFC/TFC_arm_cm0.c **** {   
  158              		.loc 1 73 0
  159              		.cfi_startproc
  160 0000 90B5     		push	{r4, r7, lr}
@@ -236,24 +236,24 @@
  170              	.LCFI9:
  171              		.cfi_def_cfa_register 7
  172 0006 7860     		str	r0, [r7, #4]
-  74:../Sources/TFC/TFC_arm_cm0.c ****     /* Make sure that the IRQ is an allowable number. Up to 32 is 
-  75:../Sources/TFC/TFC_arm_cm0.c ****      * used.
-  76:../Sources/TFC/TFC_arm_cm0.c ****      *
-  77:../Sources/TFC/TFC_arm_cm0.c ****      * NOTE: If you are using the interrupt definitions from the header
-  78:../Sources/TFC/TFC_arm_cm0.c ****      * file, you MUST SUBTRACT 16!!!
-  79:../Sources/TFC/TFC_arm_cm0.c ****      */
-  80:../Sources/TFC/TFC_arm_cm0.c ****     if (irq > 32)
+  74:../sources/TFC/TFC_arm_cm0.c ****     /* Make sure that the IRQ is an allowable number. Up to 32 is 
+  75:../sources/TFC/TFC_arm_cm0.c ****      * used.
+  76:../sources/TFC/TFC_arm_cm0.c ****      *
+  77:../sources/TFC/TFC_arm_cm0.c ****      * NOTE: If you are using the interrupt definitions from the header
+  78:../sources/TFC/TFC_arm_cm0.c ****      * file, you MUST SUBTRACT 16!!!
+  79:../sources/TFC/TFC_arm_cm0.c ****      */
+  80:../sources/TFC/TFC_arm_cm0.c ****     if (irq > 32)
  173              		.loc 1 80 0
  174 0008 7B68     		ldr	r3, [r7, #4]
  175 000a 202B     		cmp	r3, #32
  176 000c 27DC     		bgt	.L10
-  81:../Sources/TFC/TFC_arm_cm0.c ****     {
-  82:../Sources/TFC/TFC_arm_cm0.c ****         // printf("\nERR! Invalid IRQ value passed to enable irq function!\n");	
-  83:../Sources/TFC/TFC_arm_cm0.c ****     }
-  84:../Sources/TFC/TFC_arm_cm0.c ****     else
-  85:../Sources/TFC/TFC_arm_cm0.c ****     {
-  86:../Sources/TFC/TFC_arm_cm0.c ****       /* Set the ICPR and ISER registers accordingly */
-  87:../Sources/TFC/TFC_arm_cm0.c ****       NVIC_ICPR |= 1 << (irq%32);
+  81:../sources/TFC/TFC_arm_cm0.c ****     {
+  82:../sources/TFC/TFC_arm_cm0.c ****         // printf("\nERR! Invalid IRQ value passed to enable irq function!\n");	
+  83:../sources/TFC/TFC_arm_cm0.c ****     }
+  84:../sources/TFC/TFC_arm_cm0.c ****     else
+  85:../sources/TFC/TFC_arm_cm0.c ****     {
+  86:../sources/TFC/TFC_arm_cm0.c ****       /* Set the ICPR and ISER registers accordingly */
+  87:../sources/TFC/TFC_arm_cm0.c ****       NVIC_ICPR |= 1 << (irq%32);
  177              		.loc 1 87 0
  178 000e 154A     		ldr	r2, .L14
  179 0010 1449     		ldr	r1, .L14
@@ -278,7 +278,7 @@
  198 0034 C023     		mov	r3, #192
  199 0036 5B00     		lsl	r3, r3, #1
  200 0038 D150     		str	r1, [r2, r3]
-  88:../Sources/TFC/TFC_arm_cm0.c ****       NVIC_ISER |= 1 << (irq%32);
+  88:../sources/TFC/TFC_arm_cm0.c ****       NVIC_ISER |= 1 << (irq%32);
  201              		.loc 1 88 0
  202 003a 0A4A     		ldr	r2, .L14
  203 003c 094B     		ldr	r3, .L14
@@ -300,8 +300,8 @@
  219 005a 0B43     		orr	r3, r1
  220 005c 1360     		str	r3, [r2]
  221              	.L10:
-  89:../Sources/TFC/TFC_arm_cm0.c ****     }
-  90:../Sources/TFC/TFC_arm_cm0.c **** }
+  89:../sources/TFC/TFC_arm_cm0.c ****     }
+  90:../sources/TFC/TFC_arm_cm0.c **** }
  222              		.loc 1 90 0
  223 005e BD46     		mov	sp, r7
  224 0060 03B0     		add	sp, sp, #12
@@ -321,20 +321,20 @@
  239              		.thumb_func
  241              	disable_irq:
  242              	.LFB4:
-  91:../Sources/TFC/TFC_arm_cm0.c **** /***********************************************************************/
-  92:../Sources/TFC/TFC_arm_cm0.c **** /*
-  93:../Sources/TFC/TFC_arm_cm0.c ****  * Initialize the NVIC to disable the specified IRQ.
-  94:../Sources/TFC/TFC_arm_cm0.c ****  * 
-  95:../Sources/TFC/TFC_arm_cm0.c ****  * NOTE: The function only initializes the NVIC to disable a single IRQ. 
-  96:../Sources/TFC/TFC_arm_cm0.c ****  * If you want to disable all interrupts, then use the DisableInterrupts
-  97:../Sources/TFC/TFC_arm_cm0.c ****  * macro instead. 
-  98:../Sources/TFC/TFC_arm_cm0.c ****  *
-  99:../Sources/TFC/TFC_arm_cm0.c ****  * Parameters:
- 100:../Sources/TFC/TFC_arm_cm0.c ****  * irq    irq number to be disabled (the irq number NOT the vector number)
- 101:../Sources/TFC/TFC_arm_cm0.c ****  */
- 102:../Sources/TFC/TFC_arm_cm0.c **** 
- 103:../Sources/TFC/TFC_arm_cm0.c **** void disable_irq (int irq)
- 104:../Sources/TFC/TFC_arm_cm0.c **** {
+  91:../sources/TFC/TFC_arm_cm0.c **** /***********************************************************************/
+  92:../sources/TFC/TFC_arm_cm0.c **** /*
+  93:../sources/TFC/TFC_arm_cm0.c ****  * Initialize the NVIC to disable the specified IRQ.
+  94:../sources/TFC/TFC_arm_cm0.c ****  * 
+  95:../sources/TFC/TFC_arm_cm0.c ****  * NOTE: The function only initializes the NVIC to disable a single IRQ. 
+  96:../sources/TFC/TFC_arm_cm0.c ****  * If you want to disable all interrupts, then use the DisableInterrupts
+  97:../sources/TFC/TFC_arm_cm0.c ****  * macro instead. 
+  98:../sources/TFC/TFC_arm_cm0.c ****  *
+  99:../sources/TFC/TFC_arm_cm0.c ****  * Parameters:
+ 100:../sources/TFC/TFC_arm_cm0.c ****  * irq    irq number to be disabled (the irq number NOT the vector number)
+ 101:../sources/TFC/TFC_arm_cm0.c ****  */
+ 102:../sources/TFC/TFC_arm_cm0.c **** 
+ 103:../sources/TFC/TFC_arm_cm0.c **** void disable_irq (int irq)
+ 104:../sources/TFC/TFC_arm_cm0.c **** {
  243              		.loc 1 104 0
  244              		.cfi_startproc
  245 0000 80B5     		push	{r7, lr}
@@ -349,24 +349,24 @@
  254              	.LCFI12:
  255              		.cfi_def_cfa_register 7
  256 0006 7860     		str	r0, [r7, #4]
- 105:../Sources/TFC/TFC_arm_cm0.c ****     
- 106:../Sources/TFC/TFC_arm_cm0.c ****     /* Make sure that the IRQ is an allowable number. Right now up to 32 is 
- 107:../Sources/TFC/TFC_arm_cm0.c ****      * used.
- 108:../Sources/TFC/TFC_arm_cm0.c ****      *
- 109:../Sources/TFC/TFC_arm_cm0.c ****      * NOTE: If you are using the interrupt definitions from the header
- 110:../Sources/TFC/TFC_arm_cm0.c ****      * file, you MUST SUBTRACT 16!!!
- 111:../Sources/TFC/TFC_arm_cm0.c ****      */
- 112:../Sources/TFC/TFC_arm_cm0.c ****     if (irq > 32)
+ 105:../sources/TFC/TFC_arm_cm0.c ****     
+ 106:../sources/TFC/TFC_arm_cm0.c ****     /* Make sure that the IRQ is an allowable number. Right now up to 32 is 
+ 107:../sources/TFC/TFC_arm_cm0.c ****      * used.
+ 108:../sources/TFC/TFC_arm_cm0.c ****      *
+ 109:../sources/TFC/TFC_arm_cm0.c ****      * NOTE: If you are using the interrupt definitions from the header
+ 110:../sources/TFC/TFC_arm_cm0.c ****      * file, you MUST SUBTRACT 16!!!
+ 111:../sources/TFC/TFC_arm_cm0.c ****      */
+ 112:../sources/TFC/TFC_arm_cm0.c ****     if (irq > 32)
  257              		.loc 1 112 0
  258 0008 7B68     		ldr	r3, [r7, #4]
  259 000a 202B     		cmp	r3, #32
  260 000c 10DC     		bgt	.L16
- 113:../Sources/TFC/TFC_arm_cm0.c ****     {
- 114:../Sources/TFC/TFC_arm_cm0.c ****     	   // printf("\nERR! Invalid IRQ value passed to disable irq function!\n");
- 115:../Sources/TFC/TFC_arm_cm0.c ****     }
- 116:../Sources/TFC/TFC_arm_cm0.c ****     else
- 117:../Sources/TFC/TFC_arm_cm0.c ****       /* Set the ICER register accordingly */
- 118:../Sources/TFC/TFC_arm_cm0.c ****       NVIC_ICER = 1 << (irq%32);
+ 113:../sources/TFC/TFC_arm_cm0.c ****     {
+ 114:../sources/TFC/TFC_arm_cm0.c ****     	   // printf("\nERR! Invalid IRQ value passed to disable irq function!\n");
+ 115:../sources/TFC/TFC_arm_cm0.c ****     }
+ 116:../sources/TFC/TFC_arm_cm0.c ****     else
+ 117:../sources/TFC/TFC_arm_cm0.c ****       /* Set the ICER register accordingly */
+ 118:../sources/TFC/TFC_arm_cm0.c ****       NVIC_ICER = 1 << (irq%32);
  261              		.loc 1 118 0
  262 000e 0A4A     		ldr	r2, .L19
  263 0010 7968     		ldr	r1, [r7, #4]
@@ -387,7 +387,7 @@
  278 002c 8023     		mov	r3, #128
  279 002e D150     		str	r1, [r2, r3]
  280              	.L16:
- 119:../Sources/TFC/TFC_arm_cm0.c **** }
+ 119:../sources/TFC/TFC_arm_cm0.c **** }
  281              		.loc 1 119 0
  282 0030 BD46     		mov	sp, r7
  283 0032 02B0     		add	sp, sp, #8
@@ -407,21 +407,21 @@
  298              		.thumb_func
  300              	set_irq_priority:
  301              	.LFB5:
- 120:../Sources/TFC/TFC_arm_cm0.c **** /***********************************************************************/
- 121:../Sources/TFC/TFC_arm_cm0.c **** /*
- 122:../Sources/TFC/TFC_arm_cm0.c ****  * Initialize the NVIC to set specified IRQ priority.
- 123:../Sources/TFC/TFC_arm_cm0.c ****  * 
- 124:../Sources/TFC/TFC_arm_cm0.c ****  * NOTE: The function only initializes the NVIC to set a single IRQ priority. 
- 125:../Sources/TFC/TFC_arm_cm0.c ****  * Interrupts will also need to be enabled in the ARM core. This can be 
- 126:../Sources/TFC/TFC_arm_cm0.c ****  * done using the EnableInterrupts macro.
- 127:../Sources/TFC/TFC_arm_cm0.c ****  *
- 128:../Sources/TFC/TFC_arm_cm0.c ****  * Parameters:
- 129:../Sources/TFC/TFC_arm_cm0.c ****  * irq    irq number to be enabled (the irq number NOT the vector number)
- 130:../Sources/TFC/TFC_arm_cm0.c ****  * prio   irq priority. 0-3 levels. 0 max priority
- 131:../Sources/TFC/TFC_arm_cm0.c ****  */
- 132:../Sources/TFC/TFC_arm_cm0.c **** 
- 133:../Sources/TFC/TFC_arm_cm0.c **** void set_irq_priority (int irq, int prio)
- 134:../Sources/TFC/TFC_arm_cm0.c **** {   
+ 120:../sources/TFC/TFC_arm_cm0.c **** /***********************************************************************/
+ 121:../sources/TFC/TFC_arm_cm0.c **** /*
+ 122:../sources/TFC/TFC_arm_cm0.c ****  * Initialize the NVIC to set specified IRQ priority.
+ 123:../sources/TFC/TFC_arm_cm0.c ****  * 
+ 124:../sources/TFC/TFC_arm_cm0.c ****  * NOTE: The function only initializes the NVIC to set a single IRQ priority. 
+ 125:../sources/TFC/TFC_arm_cm0.c ****  * Interrupts will also need to be enabled in the ARM core. This can be 
+ 126:../sources/TFC/TFC_arm_cm0.c ****  * done using the EnableInterrupts macro.
+ 127:../sources/TFC/TFC_arm_cm0.c ****  *
+ 128:../sources/TFC/TFC_arm_cm0.c ****  * Parameters:
+ 129:../sources/TFC/TFC_arm_cm0.c ****  * irq    irq number to be enabled (the irq number NOT the vector number)
+ 130:../sources/TFC/TFC_arm_cm0.c ****  * prio   irq priority. 0-3 levels. 0 max priority
+ 131:../sources/TFC/TFC_arm_cm0.c ****  */
+ 132:../sources/TFC/TFC_arm_cm0.c **** 
+ 133:../sources/TFC/TFC_arm_cm0.c **** void set_irq_priority (int irq, int prio)
+ 134:../sources/TFC/TFC_arm_cm0.c **** {   
  302              		.loc 1 134 0
  303              		.cfi_startproc
  304 0000 80B5     		push	{r7, lr}
@@ -437,69 +437,69 @@
  314              		.cfi_def_cfa_register 7
  315 0006 7860     		str	r0, [r7, #4]
  316 0008 3960     		str	r1, [r7]
- 135:../Sources/TFC/TFC_arm_cm0.c ****     /*irq priority pointer*/
- 136:../Sources/TFC/TFC_arm_cm0.c ****     uint8 *prio_reg;
- 137:../Sources/TFC/TFC_arm_cm0.c ****     uint8 err = 0;
+ 135:../sources/TFC/TFC_arm_cm0.c ****     /*irq priority pointer*/
+ 136:../sources/TFC/TFC_arm_cm0.c ****     uint8 *prio_reg;
+ 137:../sources/TFC/TFC_arm_cm0.c ****     uint8 err = 0;
  317              		.loc 1 137 0
  318 000a 3B1C     		mov	r3, r7
  319 000c 0F33     		add	r3, r3, #15
  320 000e 0022     		mov	r2, #0
  321 0010 1A70     		strb	r2, [r3]
- 138:../Sources/TFC/TFC_arm_cm0.c ****     uint8 div = 0;
+ 138:../sources/TFC/TFC_arm_cm0.c ****     uint8 div = 0;
  322              		.loc 1 138 0
  323 0012 3B1C     		mov	r3, r7
  324 0014 0E33     		add	r3, r3, #14
  325 0016 0022     		mov	r2, #0
  326 0018 1A70     		strb	r2, [r3]
- 139:../Sources/TFC/TFC_arm_cm0.c ****     
- 140:../Sources/TFC/TFC_arm_cm0.c ****     /* Make sure that the IRQ is an allowable number. Right now up to 32 is 
- 141:../Sources/TFC/TFC_arm_cm0.c ****      * used.
- 142:../Sources/TFC/TFC_arm_cm0.c ****      *
- 143:../Sources/TFC/TFC_arm_cm0.c ****      * NOTE: If you are using the interrupt definitions from the header
- 144:../Sources/TFC/TFC_arm_cm0.c ****      * file, you MUST SUBTRACT 16!!!
- 145:../Sources/TFC/TFC_arm_cm0.c ****      */
- 146:../Sources/TFC/TFC_arm_cm0.c ****     if (irq > 32)
+ 139:../sources/TFC/TFC_arm_cm0.c ****     
+ 140:../sources/TFC/TFC_arm_cm0.c ****     /* Make sure that the IRQ is an allowable number. Right now up to 32 is 
+ 141:../sources/TFC/TFC_arm_cm0.c ****      * used.
+ 142:../sources/TFC/TFC_arm_cm0.c ****      *
+ 143:../sources/TFC/TFC_arm_cm0.c ****      * NOTE: If you are using the interrupt definitions from the header
+ 144:../sources/TFC/TFC_arm_cm0.c ****      * file, you MUST SUBTRACT 16!!!
+ 145:../sources/TFC/TFC_arm_cm0.c ****      */
+ 146:../sources/TFC/TFC_arm_cm0.c ****     if (irq > 32)
  327              		.loc 1 146 0
  328 001a 7B68     		ldr	r3, [r7, #4]
  329 001c 202B     		cmp	r3, #32
  330 001e 03DD     		ble	.L22
- 147:../Sources/TFC/TFC_arm_cm0.c ****     {
- 148:../Sources/TFC/TFC_arm_cm0.c ****       //  printf("\nERR! Invalid IRQ value passed to priority irq function!\n");
- 149:../Sources/TFC/TFC_arm_cm0.c ****         err = 1;
+ 147:../sources/TFC/TFC_arm_cm0.c ****     {
+ 148:../sources/TFC/TFC_arm_cm0.c ****       //  printf("\nERR! Invalid IRQ value passed to priority irq function!\n");
+ 149:../sources/TFC/TFC_arm_cm0.c ****         err = 1;
  331              		.loc 1 149 0
  332 0020 3B1C     		mov	r3, r7
  333 0022 0F33     		add	r3, r3, #15
  334 0024 0122     		mov	r2, #1
  335 0026 1A70     		strb	r2, [r3]
  336              	.L22:
- 150:../Sources/TFC/TFC_arm_cm0.c ****     }
- 151:../Sources/TFC/TFC_arm_cm0.c **** 
- 152:../Sources/TFC/TFC_arm_cm0.c ****     if (prio > 3)
+ 150:../sources/TFC/TFC_arm_cm0.c ****     }
+ 151:../sources/TFC/TFC_arm_cm0.c **** 
+ 152:../sources/TFC/TFC_arm_cm0.c ****     if (prio > 3)
  337              		.loc 1 152 0
  338 0028 3B68     		ldr	r3, [r7]
  339 002a 032B     		cmp	r3, #3
  340 002c 03DD     		ble	.L23
- 153:../Sources/TFC/TFC_arm_cm0.c ****     {
- 154:../Sources/TFC/TFC_arm_cm0.c ****        // printf("\nERR! Invalid priority value passed to priority irq function!\n");
- 155:../Sources/TFC/TFC_arm_cm0.c ****         err = 1;
+ 153:../sources/TFC/TFC_arm_cm0.c ****     {
+ 154:../sources/TFC/TFC_arm_cm0.c ****        // printf("\nERR! Invalid priority value passed to priority irq function!\n");
+ 155:../sources/TFC/TFC_arm_cm0.c ****         err = 1;
  341              		.loc 1 155 0
  342 002e 3B1C     		mov	r3, r7
  343 0030 0F33     		add	r3, r3, #15
  344 0032 0122     		mov	r2, #1
  345 0034 1A70     		strb	r2, [r3]
  346              	.L23:
- 156:../Sources/TFC/TFC_arm_cm0.c ****     }
- 157:../Sources/TFC/TFC_arm_cm0.c ****     
- 158:../Sources/TFC/TFC_arm_cm0.c ****     if (err != 1)
+ 156:../sources/TFC/TFC_arm_cm0.c ****     }
+ 157:../sources/TFC/TFC_arm_cm0.c ****     
+ 158:../sources/TFC/TFC_arm_cm0.c ****     if (err != 1)
  347              		.loc 1 158 0
  348 0036 3B1C     		mov	r3, r7
  349 0038 0F33     		add	r3, r3, #15
  350 003a 1B78     		ldrb	r3, [r3]
  351 003c 012B     		cmp	r3, #1
  352 003e 14D0     		beq	.L21
- 159:../Sources/TFC/TFC_arm_cm0.c ****     {
- 160:../Sources/TFC/TFC_arm_cm0.c ****         /* Determine which of the NVICIPx corresponds to the irq */
- 161:../Sources/TFC/TFC_arm_cm0.c ****         div = irq / 4;
+ 159:../sources/TFC/TFC_arm_cm0.c ****     {
+ 160:../sources/TFC/TFC_arm_cm0.c ****         /* Determine which of the NVICIPx corresponds to the irq */
+ 161:../sources/TFC/TFC_arm_cm0.c ****         div = irq / 4;
  353              		.loc 1 161 0
  354 0040 7B68     		ldr	r3, [r7, #4]
  355 0042 002B     		cmp	r3, #0
@@ -511,7 +511,7 @@
  361 004c 3B1C     		mov	r3, r7
  362 004e 0E33     		add	r3, r3, #14
  363 0050 1A70     		strb	r2, [r3]
- 162:../Sources/TFC/TFC_arm_cm0.c ****         prio_reg = (uint8 *)((uint32)&NVIC_IP(div));
+ 162:../sources/TFC/TFC_arm_cm0.c ****         prio_reg = (uint8 *)((uint32)&NVIC_IP(div));
  364              		.loc 1 162 0
  365 0052 3B1C     		mov	r3, r7
  366 0054 0E33     		add	r3, r3, #14
@@ -520,8 +520,8 @@
  369 005a 054A     		ldr	r2, .L26
  370 005c 9B18     		add	r3, r3, r2
  371 005e BB60     		str	r3, [r7, #8]
- 163:../Sources/TFC/TFC_arm_cm0.c ****         /* Assign priority to IRQ */
- 164:../Sources/TFC/TFC_arm_cm0.c ****         *prio_reg = ( (prio&0x3) << (8 - ARM_INTERRUPT_LEVEL_BITS) );             
+ 163:../sources/TFC/TFC_arm_cm0.c ****         /* Assign priority to IRQ */
+ 164:../sources/TFC/TFC_arm_cm0.c ****         *prio_reg = ( (prio&0x3) << (8 - ARM_INTERRUPT_LEVEL_BITS) );             
  372              		.loc 1 164 0
  373 0060 3B68     		ldr	r3, [r7]
  374 0062 9B01     		lsl	r3, r3, #6
@@ -529,8 +529,8 @@
  376 0066 BB68     		ldr	r3, [r7, #8]
  377 0068 1A70     		strb	r2, [r3]
  378              	.L21:
- 165:../Sources/TFC/TFC_arm_cm0.c ****     }
- 166:../Sources/TFC/TFC_arm_cm0.c **** }
+ 165:../sources/TFC/TFC_arm_cm0.c ****     }
+ 166:../sources/TFC/TFC_arm_cm0.c **** }
  379              		.loc 1 166 0
  380 006a BD46     		mov	sp, r7
  381 006c 04B0     		add	sp, sp, #16
@@ -544,29 +544,29 @@
  389              	.LFE5:
  391              		.text
  392              	.Letext0:
- 393              		.file 2 "C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
- 394              		.file 3 "D:/ELI/BUSINESS/CLIENT_DATA/FREESCALE/frdm-tfc__google-code/DEVELOPMENT_TRUNK/FRDM-TFC/Pr
- 395              		.file 4 "D:/ELI/BUSINESS/CLIENT_DATA/FREESCALE/frdm-tfc__google-code/DEVELOPMENT_TRUNK/FRDM-TFC/Pr
+ 393              		.file 2 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 394              		.file 3 "H:/git/freescale/Project_Headers/MKL25Z4.h"
+ 395              		.file 4 "H:/git/freescale/Project_Headers/TFC\\TFC_arm_cm0.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 TFC_arm_cm0.c
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:18     .text.stop:00000000 $t
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:23     .text.stop:00000000 stop
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:59     .text.stop:00000020 $d
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:64     .text.wait:00000000 $t
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:69     .text.wait:00000000 wait
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:106    .text.wait:00000024 $d
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:111    .text.write_vtor:00000000 $t
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:116    .text.write_vtor:00000000 write_vtor
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:145    .text.write_vtor:00000018 $d
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:151    .text.enable_irq:00000000 $t
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:156    .text.enable_irq:00000000 enable_irq
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:230    .text.enable_irq:00000064 $d
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:236    .text.disable_irq:00000000 $t
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:241    .text.disable_irq:00000000 disable_irq
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:289    .text.disable_irq:00000038 $d
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:295    .text.set_irq_priority:00000000 $t
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:300    .text.set_irq_priority:00000000 set_irq_priority
-C:\Users\ehughes\AppData\Local\Temp\ccAV9scf.s:387    .text.set_irq_priority:00000070 $d
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:18     .text.stop:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:23     .text.stop:00000000 stop
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:59     .text.stop:00000020 $d
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:64     .text.wait:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:69     .text.wait:00000000 wait
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:106    .text.wait:00000024 $d
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:111    .text.write_vtor:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:116    .text.write_vtor:00000000 write_vtor
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:145    .text.write_vtor:00000018 $d
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:151    .text.enable_irq:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:156    .text.enable_irq:00000000 enable_irq
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:230    .text.enable_irq:00000064 $d
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:236    .text.disable_irq:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:241    .text.disable_irq:00000000 disable_irq
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:289    .text.disable_irq:00000038 $d
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:295    .text.set_irq_priority:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:300    .text.set_irq_priority:00000000 set_irq_priority
+C:\Users\calla\AppData\Local\Temp\ccSR0f6t.s:387    .text.set_irq_priority:00000070 $d
                      .debug_frame:00000010 $d
 
 NO UNDEFINED SYMBOLS

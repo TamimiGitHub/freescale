@@ -4,6 +4,11 @@
 int main(void)
 {
 	uint32_t t,i=0;
+	//LineScanImage0;
+	int ii=0;
+	int deltaL, deltaR;
+	int firstLevel, secondLevel;
+	int steeringAngle;
 	
 	TFC_Init();
 	
@@ -17,76 +22,58 @@ int main(void)
 			switch((TFC_GetDIP_Switch()>>1)&0x03)
 			{
 			default:
-			case 0 :
-				//Demo mode 0 just tests the switches and LED's
-				if(TFC_PUSH_BUTTON_0_PRESSED)
-					TFC_BAT_LED0_ON;
-				else
-					TFC_BAT_LED0_OFF;
-				
-				if(TFC_PUSH_BUTTON_1_PRESSED)
-					TFC_BAT_LED3_ON;
-				else
-					TFC_BAT_LED3_OFF;
-				
-				
-				if(TFC_GetDIP_Switch()&0x01)
-					TFC_BAT_LED1_ON;
-				else
-					TFC_BAT_LED1_OFF;
-				
-				if(TFC_GetDIP_Switch()&0x08)
-					TFC_BAT_LED2_ON;
-				else
-					TFC_BAT_LED2_OFF;
-				
-				break;
-					
-			case 1:
-				
-				//Demo mode 1 will just move the servos with the on-board potentiometers
-				if(TFC_Ticker[0]>=20)
-				{
-					TFC_Ticker[0] = 0; //reset the Ticker
-					//Every 20 mSeconds, update the Servos
-					TFC_SetServo(0,TFC_ReadPot(0));
-					TFC_SetServo(1,TFC_ReadPot(1));
-				}
-				//Let's put a pattern on the LEDs
-				if(TFC_Ticker[1] >= 125)
-				{
-					TFC_Ticker[1] = 0;
-					t++;
-					if(t>4)
-					{
-						t=0;
-					}			
-					TFC_SetBatteryLED_Level(t);
-				}
-				
-				TFC_SetMotorPWM(0,0); //Make sure motors are off
-				TFC_HBRIDGE_DISABLE;
-			
+				ii=0;
 
-				break;
 				
-			case 2 :
-				
-				//Demo Mode 2 will use the Pots to make the motors move
-				TFC_HBRIDGE_ENABLE;
-				TFC_SetMotorPWM(TFC_ReadPot(0),TFC_ReadPot(1));
-						
-				//Let's put a pattern on the LEDs
-				if(TFC_Ticker[1] >= 125)
-					{
-						TFC_Ticker[1] = 0;
-							t++;
-							if(t>4)
-							{
-								t=0;
-							}			
-						TFC_SetBatteryLED_Level(t);
+				for(;ii<=50; ii++){
+					deltaL = LineScanImage0[63-ii] - LineScanImage0[62-ii];
+					deltaR = LineScanImage0[63+ii] - LineScanImage0[65+ii];
+					//may need to tweak '5' just abasic slope thresh hold
+					if(deltaL<-5||deltaR<-5){
+						//car continues straight(may want to adjust this later to be more accurate)
+						steeringAngle = 0;
+						break;
 					}
+					//where first derivative drop found on leftside
+					
+					if(deltaL>10&&(LineScanImage0[62-ii] - LineScanImage0[61-ii])){
+						//may need to change 3 should be lower than first thresh holdslope
+						while(deltaL>3&&ii<=50){
+							ii++;
+							deltaL = LineScanImage0[63-ii] - LineScanImage0[62-ii];
+						}
+						firstLevel = 63 - ii;
+						while(deltaL<3&&i<=50){
+							ii++;
+							deltaL = LineScanImage0[63-ii] - LineScanImage0[62-ii];
+						}
+						secondLevel = 63 - ii;
+						steeringAngle = (firstLevel + secondLevel)/2; 
+						break;//don't check right side
+					
+					}
+					if(deltaR>10&&(LineScanImage0[64+ii] - LineScanImage0[65+ii])){
+					//may need to change 3 should be lower than first thresh holdslope
+						while(deltaR>3&&ii<=50){
+							ii++;
+							deltaR = LineScanImage0[64+ii] - LineScanImage0[65+ii];
+						}
+						firstLevel = 64 + ii;
+						while(deltaL<3&&ii<=50){
+							ii++;
+							deltaR = LineScanImage0[64+ii] - LineScanImage0[65+ii];
+						}
+							secondLevel = 64 + ii;
+							steeringAngle = (firstLevel + secondLevel)/2; 
+							break; //don't check anymore bits				
+										
+						}
+				}
+				steeringAngle = 0;//if passes a horizontal line
+				
+				
+				
+				
 				break;
 			
 			case 3 :
