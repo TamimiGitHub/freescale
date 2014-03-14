@@ -7,6 +7,7 @@
 // use these to dial in servo steering to your particular servo
 #define SERVO_MIN_DUTY_CYCLE                                          (float)(.0014*FTM1_OVERFLOW_FREQUENCY)  // The number here should be be *pulse width* in seconds to move servo to its left limit
 #define SERVO_MAX_DUTY_CYCLE                                         (float)(.0020*FTM1_OVERFLOW_FREQUENCY)  // The number here should be be *pulse width* in seconds to move servo to its Right limit
+#define	S(i)	(((i + 50.0)/100.0)*(SERVO_MAX_DUTY_CYCLE - SERVO_MIN_DUTY_CYCLE) + SERVO_MIN_DUTY_CYCLE)
 /**********************************************************************************************/
 
 //Position is -1.0 to 1.0.   Use SERVO_X_MIN_DUTY_CYCLE and SERVO_MAX_DUTY_CYCLE  to calibrate the extremes
@@ -34,6 +35,139 @@ void FTM1_IRQHandler()
                if (ServoTickVar < 0xff)//if servo tick less than 255 count up... 
                               ServoTickVar++;
   
+}
+
+/**
+ * This is the lookup table for TFC_SetServoLookup.
+ */
+static const float lookupDC[101]=
+{
+		S(-50),
+		S(-49),
+		S(-48),
+		S(-47),
+		S(-46),
+		S(-45),
+		S(-44),
+		S(-43),
+		S(-42),
+		S(-41),
+		S(-40),
+		S(-39),
+		S(-38),
+		S(-37),
+		S(-36),
+		S(-35),
+		S(-34),
+		S(-33),
+		S(-32),
+		S(-31),
+		S(-30),
+		S(-29),
+		S(-28),
+		S(-27),
+		S(-26),
+		S(-25),
+		S(-24),
+		S(-23),
+		S(-22),
+		S(-21),
+		S(-20),
+		S(-19),
+		S(-18),
+		S(-17),
+		S(-16),
+		S(-15),
+		S(-14),
+		S(-13),
+		S(-12),
+		S(-11),
+		S(-10),
+		S(-9),
+		S(-8),
+		S(-7),
+		S(-6),
+		S(-5),
+		S(-4),
+		S(-3),
+		S(-2),
+		S(-1),
+		S(0),
+		S(1),
+		S(2),
+		S(3),
+		S(4),
+		S(5),
+		S(6),
+		S(7),
+		S(8),
+		S(9),
+		S(10),
+		S(11),
+		S(12),
+		S(13),
+		S(14),
+		S(15),
+		S(16),
+		S(17),
+		S(18),
+		S(19),
+		S(20),
+		S(21),
+		S(22),
+		S(23),
+		S(24),
+		S(25),
+		S(26),
+		S(27),
+		S(28),
+		S(29),
+		S(30),
+		S(31),
+		S(32),
+		S(33),
+		S(34),
+		S(35),
+		S(36),
+		S(37),
+		S(38),
+		S(39),
+		S(40),
+		S(41),
+		S(42),
+		S(43),
+		S(44),
+		S(45),
+		S(46),
+		S(47),
+		S(48),
+		S(49),
+		S(50)
+};
+
+/**
+ * TFC_SetServoLookup: Sets servo to a certain angle using a lookup tble stored in flash
+ * 
+ * current: global state tracking variable
+ * setTo: position to set servo to; int btwn -50 and 50 (inclusive); -50: left, 50: right
+ */
+volatile int current;
+void TFC_SetServoLookup(int setTo)
+{
+	current = setTo; // update state tracker
+	TPM1_C0V = TPM1_MOD * lookupDC[setTo + 50]; // offset and make register modifications
+}
+
+/**
+ * TFC_MoveServoLookup: Move servo by an amount from it's present position
+ * 
+ * current: global state tracking variable
+ * increment: amount to move servo; current + increment cannot have a magnitude greater than 50
+ */
+void TFC_MoveServoLookup(int increment)
+{
+	current += increment; // update state tracker
+	TPM1_C0V = TPM1_MOD * lookupDC[current + increment + 50]; // offset and make register modifications
 }
 
 /**
