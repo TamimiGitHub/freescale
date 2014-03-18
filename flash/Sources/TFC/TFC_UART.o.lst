@@ -998,24 +998,24 @@ DEFINED SYMBOLS
                             *COM*:0000000c SDA_SERIAL_INCOMING_QUEUE
                             *COM*:00000800 SDA_SERIAL_OUTGOING_QUEUE_Storage
                             *COM*:00000080 SDA_SERIAL_INCOMING_QUEUE_Storage
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:22     .text.TFC_InitUARTs:00000000 $t
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:27     .text.TFC_InitUARTs:00000000 TFC_InitUARTs
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:298    .text.uart0_init:00000000 uart0_init
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:131    .text.TFC_InitUARTs:000000a4 $d
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:146    .text.TFC_UART_Process:00000000 $t
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:151    .text.TFC_UART_Process:00000000 TFC_UART_Process
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:196    .text.TFC_UART_Process:00000038 $d
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:202    .text.UART0_IRQHandler:00000000 $t
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:207    .text.UART0_IRQHandler:00000000 UART0_IRQHandler
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:285    .text.UART0_IRQHandler:0000006c $d
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:293    .text.uart0_init:00000000 $t
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:634    .text.uart0_init:00000214 $d
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:644    .text.uart_getchar:00000000 $t
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:649    .text.uart_getchar:00000000 uart_getchar
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:690    .text.uart_putchar:00000000 $t
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:695    .text.uart_putchar:00000000 uart_putchar
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:739    .text.uart_getchar_present:00000000 $t
-C:\Users\calla\AppData\Local\Temp\ccZfPzZJ.s:744    .text.uart_getchar_present:00000000 uart_getchar_present
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:22     .text.TFC_InitUARTs:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:27     .text.TFC_InitUARTs:00000000 TFC_InitUARTs
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:298    .text.uart0_init:00000000 uart0_init
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:131    .text.TFC_InitUARTs:000000a4 $d
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:146    .text.TFC_UART_Process:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:151    .text.TFC_UART_Process:00000000 TFC_UART_Process
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:196    .text.TFC_UART_Process:00000038 $d
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:202    .text.UART0_IRQHandler:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:207    .text.UART0_IRQHandler:00000000 UART0_IRQHandler
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:285    .text.UART0_IRQHandler:0000006c $d
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:293    .text.uart0_init:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:634    .text.uart0_init:00000214 $d
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:644    .text.uart_getchar:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:649    .text.uart_getchar:00000000 uart_getchar
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:690    .text.uart_putchar:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:695    .text.uart_putchar:00000000 uart_putchar
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:739    .text.uart_getchar_present:00000000 $t
+C:\Users\calla\AppData\Local\Temp\ccsTG76x.s:744    .text.uart_getchar_present:00000000 uart_getchar_present
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

@@ -3,14 +3,18 @@
 
 int main(void)
 {
-	uint32_t t,i=0;
+	uint32_t i=0;
 	//LineScanImage0;
 	int ii=0;
 	int deltaL, deltaR;
 	int firstLevel, secondLevel;
 	int steeringAngle;
-	
+	int samplenum = 8;
+	int threshold=50*samplenum;
+	int smallthreshold=50*samplenum;
 	TFC_Init();
+	
+	
 	
 	for(;;)
 	{	   
@@ -23,48 +27,29 @@ int main(void)
 			{
 			default:
 				ii=0;
-
-				if(TFC_Ticker[0]>100 && LineScanImageReady==1)
-					{
-						TFC_Ticker[0] = 0;
-						 LineScanImageReady=0;
-						 TERMINAL_PRINTF("\r\n");
-						 TERMINAL_PRINTF("L:");
-						 
-							if(t==0)
-								t=3;
-							else
-								t--;
-							
-							 TFC_SetBatteryLED_Level(t);
-							
-							 for(i=0;i<128;i++)
-							 {
-									 TERMINAL_PRINTF("%X,",LineScanImage0[i]);
-							 }
-							
-							 for(i=0;i<128;i++)
-							 {
-								 TERMINAL_PRINTF("%X",LineScanImage1[i]);
-								 if(i==127)
-									 TERMINAL_PRINTF("\r\n",LineScanImage1[i]);
-								 else
-									 TERMINAL_PRINTF(",",LineScanImage1[i]);
-							 }										
-							
+				
+				uint16_t  WorkingImage[128]={0};
+				int sample = 0;
+				for(;sample<3;){
+					if(LineScanImageReady){
+						int j=0;
+						for(;j<128;j++) WorkingImage[j]=LineScanImage0[j];
+						sample++;
 					}
+					
+				}
 									
 				
 			int L1, L2, R1, R2;				
 				for(;ii<=50; ii++){
-					L1 = LineScanImage0[63-ii];
-					L2 = LineScanImage0[62-ii];
-					R1 = LineScanImage0[63+ii];
-					R2 = LineScanImage0[64+ii];
-					deltaL = LineScanImage0[63-ii] - LineScanImage0[62-ii];
-					deltaR = LineScanImage0[63+ii] - LineScanImage0[64+ii];
-					//may need to tweak '5' just abasic slope thresh hold
-					if(deltaL<-5||deltaR<-5){
+					L1 = WorkingImage[63-ii];
+					L2 = WorkingImage[62-ii];
+					R1 = WorkingImage[63+ii];
+					R2 = WorkingImage[64+ii];
+					deltaL = WorkingImage[63-ii] - WorkingImage[62-ii];
+					deltaR = WorkingImage[63+ii] - WorkingImage[64+ii];
+					
+					if(deltaL<-threshold||deltaR<-threshold){
 						//car continues straight(may want to adjust this later to be more accurate)
 						steeringAngle = 0;
 						TFC_SetServoLookup(0);// straight line to servos
@@ -72,16 +57,16 @@ int main(void)
 					}
 					//where first derivative drop found on leftside
 					
-					if(deltaL>10&&(LineScanImage0[62-ii] - LineScanImage0[61-ii])){
+					if(deltaL>threshold&&(WorkingImage[62-ii] - WorkingImage[61-ii])>threshold){
 						//may need to change 3 should be lower than first thresh holdslope
-						while(deltaL>3&&ii<=50){
+						while(deltaL>smallthreshold&&ii<=50){
 							ii++;
-							deltaL = LineScanImage0[63-ii] - LineScanImage0[62-ii];
+							deltaL = WorkingImage[63-ii] - WorkingImage[62-ii];
 						}
 						firstLevel = 63 - ii;
-						while(deltaL<3&&i<=50){
+						while(deltaL<smallthreshold&&i<=50){
 							ii++;
-							deltaL = LineScanImage0[63-ii] - LineScanImage0[62-ii];
+							deltaL = WorkingImage[63-ii] - WorkingImage[62-ii];
 						}
 						secondLevel = 63 - ii;
 						steeringAngle = (firstLevel + secondLevel)/2; 
@@ -89,16 +74,16 @@ int main(void)
 						break;//don't check right side
 					
 					}
-					if(deltaR>10&&(LineScanImage0[64+ii] - LineScanImage0[65+ii])){
+					if(deltaR>threshold&&(WorkingImage[64+ii] - WorkingImage[65+ii])>threshold){
 					//may need to change 3 should be lower than first thresh holdslope
-						while(deltaR>3&&ii<=50){
+						while(deltaR>smallthreshold&&ii<=50){
 							ii++;
-							deltaR = LineScanImage0[64+ii] - LineScanImage0[65+ii];
+							deltaR = WorkingImage[64+ii] - WorkingImage[65+ii];
 						}
 						firstLevel = 64 + ii;
-						while(deltaL<3&&ii<=50){
+						while(deltaL<smallthreshold&&ii<=50){
 							ii++;
-							deltaR = LineScanImage0[64+ii] - LineScanImage0[65+ii];
+							deltaR = WorkingImage[64+ii] - WorkingImage[65+ii];
 						}
 							secondLevel = 64 + ii;
 							steeringAngle = (firstLevel + secondLevel)/2; 

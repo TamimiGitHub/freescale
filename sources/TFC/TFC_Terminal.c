@@ -142,8 +142,8 @@ void TerminalCmd_S(char *arg)
 	
 	TERMINAL_PRINTF("Setting Servos to %d , %d\r\n",ServoSetting[0],ServoSetting[1]);
 	
-	TFC_SetServo(0,(float)ServoSetting[0]/100.0f); //Rescale to -1.0 to 1.0
-	TFC_SetServo(1,(float)ServoSetting[1]/100.0f);
+	TFC_SetServo((float)ServoSetting[0]/100.0f); //Rescale to -1.0 to 1.0
+	TFC_SetServo((float)ServoSetting[1]/100.0f);
 	}
 	else
 	{
