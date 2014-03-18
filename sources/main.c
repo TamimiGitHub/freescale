@@ -36,6 +36,7 @@ int main(void)
 						for(;j<128;j++) WorkingImage[j]=LineScanImage0[j];
 						sample++;
 					}
+
 					
 				}
 									
@@ -97,7 +98,68 @@ int main(void)
 				
 				
 				
+<<<<<<< HEAD
 				
+=======
+				//Demo Mode 2 will use the Pots to make the motors move
+				TFC_HBRIDGE_ENABLE;
+				TFC_SetMotorPWM(10,10);
+				//TFC_SetMotorPWM(TFC_ReadPot(0),TFC_ReadPot(1));
+						
+				//Let's put a pattern on the LEDs
+				if(TFC_Ticker[1] >= 125)
+					{
+						TFC_Ticker[1] = 0;
+							t++;
+							if(t>4)
+							{
+								t=0;
+							}			
+						TFC_SetBatteryLED_Level(t);
+					}
+
+				break;
+			
+			case 3 :
+			
+				//Demo Mode 3 will be in Freescale Garage Mode.  It will beam data from the Camera to the 
+				//Labview Application
+				
+		
+				if(TFC_Ticker[0]>100 && LineScanImageReady==1)
+					{
+					 TFC_Ticker[0] = 0;
+					 LineScanImageReady=0;
+					 TERMINAL_PRINTF("\r\n");
+					 TERMINAL_PRINTF("L:");
+					 
+					 	if(t==0)
+					 		t=3;
+					 	else
+					 		t--;
+					 	
+						 TFC_SetBatteryLED_Level(t);
+						
+						 for(i=0;i<128;i++)
+						 {
+								 TERMINAL_PRINTF("%X,",LineScanImage0[i]);
+						 }
+						
+						 for(i=0;i<128;i++)
+						 {
+								 TERMINAL_PRINTF("%X",LineScanImage1[i]);
+								 if(i==127)
+									 TERMINAL_PRINTF("\r\n",LineScanImage1[i]);
+								 else
+									 TERMINAL_PRINTF(",",LineScanImage1[i]);
+						}										
+							
+					}
+				TFC_SetMotorPWM(0,0); //Make sure motors are off
+				TFC_HBRIDGE_DISABLE;
+
+
+>>>>>>> origin/dc
 				break;
 			}
 	}

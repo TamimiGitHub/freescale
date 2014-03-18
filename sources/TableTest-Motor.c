@@ -7,10 +7,135 @@
 #define FTM0_CLOCK                                   	      (CORE_CLOCK/2)
 #define FTM0_CLK_PRESCALE                                 	   0  // Prescale Selector value - see comments in Status Control (SC) section for more details
 #define FTM0_OVERFLOW_FREQUENCY 5000							  //
-
+#define	M(i)	(uint16_t) (float)((i + 50.0)/100.0)
 
 /**********************************************************************************************/
 
+static const float PWMtable[101]=
+{
+	/* Assume User input is correct
+	if(MotorA>100.0)
+		MotorA = 100.0;
+	else if(MotorA<-100.0)
+		MotorA = -100.0;
+	
+	if(MotorB>100.0)
+			MotorB = 100.0;
+		else if(MotorB<-100.0)
+			MotorB = -100.0;
+	*/
+			M(-50),
+			M(-49),
+			M(-48),
+			M(-47),
+			M(-46),
+			M(-45),
+			M(-44),
+			M(-43),
+			M(-42),
+			M(-41),
+			M(-40),
+			M(-39),
+			M(-38),
+			M(-37),
+			M(-36),
+			M(-35),
+			M(-34),
+			M(-33),
+			M(-32),
+			M(-31),
+			M(-30),
+			M(-29),
+			M(-28),
+			M(-27),
+			M(-26),
+			M(-25),
+			M(-24),
+			M(-23),
+			M(-22),
+			M(-21),
+			M(-20),
+			M(-19),
+			M(-18),
+			M(-17),
+			M(-16),
+			M(-15),
+			M(-14),
+			M(-13),
+			M(-12),
+			M(-11),
+			M(-10),
+			M(-9),
+			M(-8),
+			M(-7),
+			M(-6),
+			M(-5),
+			M(-4),
+			M(-3),
+			M(-2),
+			M(-1),
+			M(0),
+			M(1),
+			M(2),
+			M(3),
+			M(4),
+			M(5),
+			M(6),
+			M(7),
+			M(8),
+			M(9),
+			M(10),
+			M(11),
+			M(12),
+			M(13),
+			M(14),
+			M(15),
+			M(16),
+			M(17),
+			M(18),
+			M(19),
+			M(20),
+			M(21),
+			M(22),
+			M(23),
+			M(24),
+			M(25),
+			M(26),
+			M(27),
+			M(28),
+			M(29),
+			M(30),
+			M(31),
+			M(32),
+			M(33),
+			M(34),
+			M(35),
+			M(36),
+			M(37),
+			M(38),
+			M(39),
+			M(40),
+			M(41),
+			M(42),
+			M(43),
+			M(44),
+			M(45),
+			M(46),
+			M(47),
+			M(48),
+			M(49),
+			M(50)
+};
+
+void TFC_SetPWMLookup(int setA, int setB)
+{
+	setA += 50;
+	setB += 50;
+	TPM0_C2V = TPM0_MOD *PWMtable[setA];
+	TPM0_C3V = TPM0_C2V;
+	TPM0_C0V = TPM0_MOD *PWMtable[setB];
+	TPM0_C1V = TPM0_C0V;
+}
 
 void TFC_InitMotorPWM()
 {
@@ -52,7 +177,7 @@ void TFC_InitMotorPWM()
     //Enable the Counter
     
     //Set the Default duty cycle to 50% duty cycle
-    TFC_SetMotorPWM(0.0,0.0);
+    TFC_SetPWMLookup(0,0);
     
     //Enable the TPM COunter
     TPM0_SC |= TPM_SC_CMOD(1);
@@ -66,26 +191,6 @@ void TFC_InitMotorPWM()
 
 }
 
-
-
-void TFC_SetMotorPWM(float MotorA , float MotorB)
-{
 	
-	if(MotorA>100.0)
-		MotorA = 100.0;
-	else if(MotorA<-100.0)
-		MotorA = -100.0;
-	
-	if(MotorB>100.0)
-			MotorB = 100.0;
-		else if(MotorB<-100.0)
-			MotorB = -100.0;
-		
-	TPM0_C2V = (uint16_t) ((float)TPM0_MOD * (float)((MotorA + 100.0)/200.0));
-	TPM0_C3V = TPM0_C2V;
-	TPM0_C0V = (uint16_t) ((float)TPM0_MOD * (float)((MotorB + 100.0)/200.0));
-	TPM0_C1V = TPM0_C0V;
-
-}
 
 
