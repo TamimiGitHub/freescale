@@ -9,11 +9,12 @@ int main(void)
 	int deltaL, deltaR;
 	int firstLevel, secondLevel;
 	int steeringAngle;
-	int samplenum = 8;
+	int samplenum = 4;
 	int threshold=50*samplenum;
 	int smallthreshold=50*samplenum;
 	TFC_Init();
-	
+	TFC_HBRIDGE_ENABLE;
+	TFC_SetMotorPWM(0.2,0.2);
 	
 	
 	for(;;)
