@@ -24,14 +24,50 @@ int main(void)
 			default:
 				ii=0;
 
+				if(TFC_Ticker[0]>100 && LineScanImageReady==1)
+					{
+						TFC_Ticker[0] = 0;
+						 LineScanImageReady=0;
+						 TERMINAL_PRINTF("\r\n");
+						 TERMINAL_PRINTF("L:");
+						 
+							if(t==0)
+								t=3;
+							else
+								t--;
+							
+							 TFC_SetBatteryLED_Level(t);
+							
+							 for(i=0;i<128;i++)
+							 {
+									 TERMINAL_PRINTF("%X,",LineScanImage0[i]);
+							 }
+							
+							 for(i=0;i<128;i++)
+							 {
+								 TERMINAL_PRINTF("%X",LineScanImage1[i]);
+								 if(i==127)
+									 TERMINAL_PRINTF("\r\n",LineScanImage1[i]);
+								 else
+									 TERMINAL_PRINTF(",",LineScanImage1[i]);
+							 }										
+							
+					}
+									
 				
+			int L1, L2, R1, R2;				
 				for(;ii<=50; ii++){
+					L1 = LineScanImage0[63-ii];
+					L2 = LineScanImage0[62-ii];
+					R1 = LineScanImage0[63+ii];
+					R2 = LineScanImage0[64+ii];
 					deltaL = LineScanImage0[63-ii] - LineScanImage0[62-ii];
-					deltaR = LineScanImage0[63+ii] - LineScanImage0[65+ii];
+					deltaR = LineScanImage0[63+ii] - LineScanImage0[64+ii];
 					//may need to tweak '5' just abasic slope thresh hold
 					if(deltaL<-5||deltaR<-5){
 						//car continues straight(may want to adjust this later to be more accurate)
 						steeringAngle = 0;
+						TFC_SetServoLookup(0);// straight line to servos
 						break;
 					}
 					//where first derivative drop found on leftside
@@ -49,6 +85,7 @@ int main(void)
 						}
 						secondLevel = 63 - ii;
 						steeringAngle = (firstLevel + secondLevel)/2; 
+						TFC_SetServoLookup(steeringAngle-50);
 						break;//don't check right side
 					
 					}
@@ -65,55 +102,17 @@ int main(void)
 						}
 							secondLevel = 64 + ii;
 							steeringAngle = (firstLevel + secondLevel)/2; 
+							TFC_SetServoLookup(steeringAngle-50);
 							break; //don't check anymore bits				
 										
 						}
 				}
 				steeringAngle = 0;//if passes a horizontal line
+				TFC_SetServoLookup(steeringAngle); // straight line to servos
 				
 				
 				
 				
-				break;
-			
-			case 3 :
-			
-				//Demo Mode 3 will be in Freescale Garage Mode.  It will beam data from the Camera to the 
-				//Labview Application
-				
-		
-				if(TFC_Ticker[0]>100 && LineScanImageReady==1)
-					{
-					 TFC_Ticker[0] = 0;
-					 LineScanImageReady=0;
-					 TERMINAL_PRINTF("\r\n");
-					 TERMINAL_PRINTF("L:");
-					 
-					 	if(t==0)
-					 		t=3;
-					 	else
-					 		t--;
-					 	
-						 TFC_SetBatteryLED_Level(t);
-						
-						 for(i=0;i<128;i++)
-						 {
-								 TERMINAL_PRINTF("%X,",LineScanImage0[i]);
-						 }
-						
-						 for(i=0;i<128;i++)
-						 {
-								 TERMINAL_PRINTF("%X",LineScanImage1[i]);
-								 if(i==127)
-									 TERMINAL_PRINTF("\r\n",LineScanImage1[i]);
-								 else
-									 TERMINAL_PRINTF(",",LineScanImage1[i]);
-						}										
-							
-					}
-					
-
-
 				break;
 			}
 	}
