@@ -34,7 +34,7 @@ int main(void)
 				for(;sample<3;){
 					if(LineScanImageReady){
 						int j=0;
-						for(;j<128;j++) WorkingImage[j]=LineScanImage0[j];
+						for(;j<128;j++) WorkingImage[j]=LineScanImage0[j];//Why is this not +=?????
 						sample++;
 					}
 					
