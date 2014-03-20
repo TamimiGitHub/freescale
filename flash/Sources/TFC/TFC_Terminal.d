@@ -2,7 +2,7 @@ sources/TFC/TFC_Terminal.o: ../sources/TFC/TFC_Terminal.c \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h \
- H:/git/freescale/Project_Headers/TFC\TFC.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ansi_parms.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewlGlobals.h \
@@ -28,21 +28,21 @@ sources/TFC/TFC_Terminal.o: ../sources/TFC/TFC_Terminal.c \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/string.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstring \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h \
- H:/git/freescale/Project_Headers/Derivative.h \
- H:/git/freescale/Project_Headers/MKL25Z4.h \
- H:/git/freescale/Project_Headers/TFC\TFC_Config.h \
- H:/git/freescale/Project_Headers/TFC\TFC_Types.h \
- H:/git/freescale/Project_Headers/TFC\TFC_arm_cm0.h \
- H:/git/freescale/Project_Headers/TFC\TFC_ARM_SysTick.h \
- H:/git/freescale/Project_Headers/TFC\TFC_BoardSupport.h \
- H:/git/freescale/Project_Headers/TFC\TFC_CrystalClock.h \
- H:/git/freescale/Project_Headers/TFC\TFC_Servo.h \
- H:/git/freescale/Project_Headers/TFC\TFC_Motor.h \
- H:/git/freescale/Project_Headers/TFC\TFC_ADC.h \
- H:/git/freescale/Project_Headers/TFC\TFC_LineScanCamera.h \
- H:/git/freescale/Project_Headers/TFC\TFC_Queue.h \
- H:/git/freescale/Project_Headers/TFC\TFC_UART.h \
- H:/git/freescale/Project_Headers/TFC\TFC_Terminal.h
+ H:/CWorkspace/freescale-line/Project_Headers/Derivative.h \
+ H:/CWorkspace/freescale-line/Project_Headers/MKL25Z4.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Config.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Types.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_arm_cm0.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_ARM_SysTick.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_BoardSupport.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_CrystalClock.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Servo.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Motor.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_ADC.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_LineScanCamera.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Queue.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_UART.h \
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Terminal.h
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -50,7 +50,7 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC.h:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h:
 
@@ -102,32 +102,32 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstring:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h:
 
-H:/git/freescale/Project_Headers/Derivative.h:
+H:/CWorkspace/freescale-line/Project_Headers/Derivative.h:
 
-H:/git/freescale/Project_Headers/MKL25Z4.h:
+H:/CWorkspace/freescale-line/Project_Headers/MKL25Z4.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_Config.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Config.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_Types.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Types.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_arm_cm0.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_arm_cm0.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_ARM_SysTick.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_ARM_SysTick.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_BoardSupport.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_BoardSupport.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_CrystalClock.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_CrystalClock.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_Servo.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Servo.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_Motor.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Motor.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_ADC.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_ADC.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_LineScanCamera.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_LineScanCamera.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_Queue.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Queue.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_UART.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_UART.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_Terminal.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_Terminal.h:

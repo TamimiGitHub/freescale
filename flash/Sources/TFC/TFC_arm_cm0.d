@@ -2,8 +2,8 @@ sources/TFC/TFC_arm_cm0.o: ../sources/TFC/TFC_arm_cm0.c \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h \
- H:/git/freescale/Project_Headers/derivative.h \
- H:/git/freescale/Project_Headers/MKL25Z4.h \
+ H:/CWorkspace/freescale-line/Project_Headers/derivative.h \
+ H:/CWorkspace/freescale-line/Project_Headers/MKL25Z4.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ansi_parms.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewlGlobals.h \
@@ -12,7 +12,7 @@ sources/TFC/TFC_arm_cm0.o: ../sources/TFC/TFC_arm_cm0.c \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h \
- H:/git/freescale/Project_Headers/TFC\TFC_arm_cm0.h
+ H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_arm_cm0.h
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -20,9 +20,9 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h:
 
-H:/git/freescale/Project_Headers/derivative.h:
+H:/CWorkspace/freescale-line/Project_Headers/derivative.h:
 
-H:/git/freescale/Project_Headers/MKL25Z4.h:
+H:/CWorkspace/freescale-line/Project_Headers/MKL25Z4.h:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h:
 
@@ -40,4 +40,4 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h:
 
-H:/git/freescale/Project_Headers/TFC\TFC_arm_cm0.h:
+H:/CWorkspace/freescale-line/Project_Headers/TFC\TFC_arm_cm0.h:

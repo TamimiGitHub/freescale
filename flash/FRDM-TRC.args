@@ -22,7 +22,7 @@
 -g3
 -gdwarf-2
 -gstrict-dwarf
--T"H:/git/freescale/Project_Settings/Linker_Files/MKL25Z128_flash.ld"
+-T"H:/CWorkspace/freescale-line/Project_Settings/Linker_Files/MKL25Z128_flash.ld"
 -Xlinker
 --gc-sections
 -L"C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m"

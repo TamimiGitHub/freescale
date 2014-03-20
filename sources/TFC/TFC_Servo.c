@@ -5,8 +5,8 @@
 #define FTM1_CLK_PRESCALE                                  						     6// Prescale Selector value - see comments in Status Control (SC) section for more details
 #define FTM1_OVERFLOW_FREQUENCY 50  // Desired Frequency of PWM Signal - Here 60Hz => ~17ms period
 // use these to dial in servo steering to your particular servo
-#define SERVO_MIN_DUTY_CYCLE                                          (float)(.00160*FTM1_OVERFLOW_FREQUENCY)  // The number here should be be *pulse width* in seconds to move servo to its left limit
-#define SERVO_MAX_DUTY_CYCLE                                         (float)(.00235*FTM1_OVERFLOW_FREQUENCY)  // The number here should be be *pulse width* in seconds to move servo to its Right limit
+#define SERVO_MIN_DUTY_CYCLE                                          (float)(.00155*FTM1_OVERFLOW_FREQUENCY)  // The number here should be be *pulse width* in seconds to move servo to its left limit
+#define SERVO_MAX_DUTY_CYCLE                                         (float)(.00225*FTM1_OVERFLOW_FREQUENCY)  // The number here should be be *pulse width* in seconds to move servo to its Right limit
 #define	S(i)	(((i + 50.0)/100.0)*(SERVO_MAX_DUTY_CYCLE - SERVO_MIN_DUTY_CYCLE) + SERVO_MIN_DUTY_CYCLE)
 /**********************************************************************************************/
 

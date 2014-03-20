@@ -4,8 +4,8 @@
 -g3
 -gdwarf-2
 -gstrict-dwarf
--I"H:/git/freescale/Project_Headers"
--I"H:/git/freescale/Project_Settings/Startup_Code"
+-I"H:/CWorkspace/freescale-line/Project_Headers"
+-I"H:/CWorkspace/freescale-line/Project_Settings/Startup_Code"
 -I"C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include"
 -I"C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_Runtime/include"
 -O0
