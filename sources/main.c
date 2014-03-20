@@ -34,7 +34,7 @@ int main(void)
 				for(;sample<3;){
 					if(LineScanImageReady){
 						int j=0;
-						for(;j<128;j++) WorkingImage[j]=LineScanImage0[j];//Why is this not +=?????
+						for(;j<128;j++) WorkingImage[j]+=LineScanImage0[j];//Why is this not +=?????
 						sample++;
 					}
 					
@@ -45,7 +45,7 @@ int main(void)
 				for(;ii<=50; ii++){
 					L1 = WorkingImage[63-ii];
 					L2 = WorkingImage[62-ii];
-					R1 = WorkingImage[63+ii];
+					R1 = WorkingImage[63+ii];//why not 64 64??? is this so there is a zero value?
 					R2 = WorkingImage[64+ii];
 					deltaL = WorkingImage[63-ii] - WorkingImage[62-ii];
 					deltaR = WorkingImage[63+ii] - WorkingImage[64+ii];
