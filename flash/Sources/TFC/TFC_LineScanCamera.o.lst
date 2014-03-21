@@ -32,22 +32,22 @@
   34              		.thumb_func
   36              	TFC_InitLineScanCamera:
   37              	.LFB0:
-  38              		.file 1 "../Sources/TFC/TFC_LineScanCamera.c"
-   1:../Sources/TFC/TFC_LineScanCamera.c **** #include "TFC\TFC.h"
-   2:../Sources/TFC/TFC_LineScanCamera.c **** 
-   3:../Sources/TFC/TFC_LineScanCamera.c **** 
-   4:../Sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  *LineScanImage0WorkingBuffer;
-   5:../Sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  *LineScanImage1WorkingBuffer;
-   6:../Sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  *LineScanImage0;
-   7:../Sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  *LineScanImage1;
-   8:../Sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  LineScanImage0Buffer[2][128];
-   9:../Sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  LineScanImage1Buffer[2][128];
-  10:../Sources/TFC/TFC_LineScanCamera.c **** volatile uint8_t  LineScanWorkingBuffer;
-  11:../Sources/TFC/TFC_LineScanCamera.c **** 
-  12:../Sources/TFC/TFC_LineScanCamera.c **** volatile uint8_t LineScanImageReady = 0;
-  13:../Sources/TFC/TFC_LineScanCamera.c **** 
-  14:../Sources/TFC/TFC_LineScanCamera.c **** void TFC_InitLineScanCamera()
-  15:../Sources/TFC/TFC_LineScanCamera.c **** {
+  38              		.file 1 "../sources/TFC/TFC_LineScanCamera.c"
+   1:../sources/TFC/TFC_LineScanCamera.c **** #include "TFC\TFC.h"
+   2:../sources/TFC/TFC_LineScanCamera.c **** 
+   3:../sources/TFC/TFC_LineScanCamera.c **** 
+   4:../sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  *LineScanImage0WorkingBuffer;
+   5:../sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  *LineScanImage1WorkingBuffer;
+   6:../sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  *LineScanImage0;
+   7:../sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  *LineScanImage1;
+   8:../sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  LineScanImage0Buffer[2][128];
+   9:../sources/TFC/TFC_LineScanCamera.c **** volatile uint16_t  LineScanImage1Buffer[2][128];
+  10:../sources/TFC/TFC_LineScanCamera.c **** volatile uint8_t  LineScanWorkingBuffer;
+  11:../sources/TFC/TFC_LineScanCamera.c **** 
+  12:../sources/TFC/TFC_LineScanCamera.c **** volatile uint8_t LineScanImageReady = 0;
+  13:../sources/TFC/TFC_LineScanCamera.c **** 
+  14:../sources/TFC/TFC_LineScanCamera.c **** void TFC_InitLineScanCamera()
+  15:../sources/TFC/TFC_LineScanCamera.c **** {
   39              		.loc 1 15 0
   40              		.cfi_startproc
   41 0000 80B5     		push	{r7, lr}
@@ -58,7 +58,7 @@
   46 0002 00AF     		add	r7, sp, #0
   47              	.LCFI1:
   48              		.cfi_def_cfa_register 7
-  16:../Sources/TFC/TFC_LineScanCamera.c **** 	SIM_SCGC5 |=     SIM_SCGC5_PORTE_MASK | SIM_SCGC5_PORTD_MASK; //Make sure the clock is enabled for
+  16:../sources/TFC/TFC_LineScanCamera.c **** 	SIM_SCGC5 |=     SIM_SCGC5_PORTE_MASK | SIM_SCGC5_PORTD_MASK; //Make sure the clock is enabled for
   49              		.loc 1 16 0
   50 0004 1C4A     		ldr	r2, .L2
   51 0006 1C49     		ldr	r1, .L2
@@ -69,32 +69,32 @@
   56 0010 1943     		orr	r1, r3
   57 0012 1A4B     		ldr	r3, .L2+4
   58 0014 D150     		str	r1, [r2, r3]
-  17:../Sources/TFC/TFC_LineScanCamera.c **** 	PORTE_PCR1 = PORT_PCR_MUX(1) | PORT_PCR_DSE_MASK;   //Enable GPIO on on the pin for the CLOCK Sign
+  17:../sources/TFC/TFC_LineScanCamera.c **** 	PORTE_PCR1 = PORT_PCR_MUX(1) | PORT_PCR_DSE_MASK;   //Enable GPIO on on the pin for the CLOCK Sign
   59              		.loc 1 17 0
   60 0016 1A4B     		ldr	r3, .L2+8
   61 0018 A022     		mov	r2, #160
   62 001a 5200     		lsl	r2, r2, #1
   63 001c 5A60     		str	r2, [r3, #4]
-  18:../Sources/TFC/TFC_LineScanCamera.c **** 	PORTD_PCR7 = PORT_PCR_MUX(1) | PORT_PCR_DSE_MASK;   //Enable GPIO on on the pin for SI signal
+  18:../sources/TFC/TFC_LineScanCamera.c **** 	PORTD_PCR7 = PORT_PCR_MUX(1) | PORT_PCR_DSE_MASK;   //Enable GPIO on on the pin for SI signal
   64              		.loc 1 18 0
   65 001e 194B     		ldr	r3, .L2+12
   66 0020 A022     		mov	r2, #160
   67 0022 5200     		lsl	r2, r2, #1
   68 0024 DA61     		str	r2, [r3, #28]
-  19:../Sources/TFC/TFC_LineScanCamera.c **** 	
-  20:../Sources/TFC/TFC_LineScanCamera.c **** 	PORTD_PCR5 = PORT_PCR_MUX(0); //Make sure AO signal goes to an analog input
+  19:../sources/TFC/TFC_LineScanCamera.c **** 	
+  20:../sources/TFC/TFC_LineScanCamera.c **** 	PORTD_PCR5 = PORT_PCR_MUX(0); //Make sure AO signal goes to an analog input
   69              		.loc 1 20 0
   70 0026 174B     		ldr	r3, .L2+12
   71 0028 0022     		mov	r2, #0
   72 002a 5A61     		str	r2, [r3, #20]
-  21:../Sources/TFC/TFC_LineScanCamera.c **** 	PORTD_PCR6 = PORT_PCR_MUX(0); //Make sure AO signal goes to an analog input
+  21:../sources/TFC/TFC_LineScanCamera.c **** 	PORTD_PCR6 = PORT_PCR_MUX(0); //Make sure AO signal goes to an analog input
   73              		.loc 1 21 0
   74 002c 154B     		ldr	r3, .L2+12
   75 002e 0022     		mov	r2, #0
   76 0030 9A61     		str	r2, [r3, #24]
-  22:../Sources/TFC/TFC_LineScanCamera.c **** 		
-  23:../Sources/TFC/TFC_LineScanCamera.c **** 	//Make sure the Clock and SI pins are outputs
-  24:../Sources/TFC/TFC_LineScanCamera.c ****     GPIOD_PDDR |= (1<<7);
+  22:../sources/TFC/TFC_LineScanCamera.c **** 		
+  23:../sources/TFC/TFC_LineScanCamera.c **** 	//Make sure the Clock and SI pins are outputs
+  24:../sources/TFC/TFC_LineScanCamera.c ****     GPIOD_PDDR |= (1<<7);
   77              		.loc 1 24 0
   78 0032 154B     		ldr	r3, .L2+16
   79 0034 144A     		ldr	r2, .L2+16
@@ -102,7 +102,7 @@
   81 0038 8021     		mov	r1, #128
   82 003a 0A43     		orr	r2, r1
   83 003c 5A61     		str	r2, [r3, #20]
-  25:../Sources/TFC/TFC_LineScanCamera.c ****     GPIOE_PDDR |= (1<<1);
+  25:../sources/TFC/TFC_LineScanCamera.c ****     GPIOE_PDDR |= (1<<1);
   84              		.loc 1 25 0
   85 003e 134B     		ldr	r3, .L2+20
   86 0040 124A     		ldr	r2, .L2+20
@@ -110,46 +110,46 @@
   88 0044 0221     		mov	r1, #2
   89 0046 0A43     		orr	r2, r1
   90 0048 5A61     		str	r2, [r3, #20]
-  26:../Sources/TFC/TFC_LineScanCamera.c ****             
-  27:../Sources/TFC/TFC_LineScanCamera.c **** 	TAOS_CLK_LOW;
+  26:../sources/TFC/TFC_LineScanCamera.c ****             
+  27:../sources/TFC/TFC_LineScanCamera.c **** 	TAOS_CLK_LOW;
   91              		.loc 1 27 0
   92 004a 104B     		ldr	r3, .L2+20
   93 004c 0222     		mov	r2, #2
   94 004e 9A60     		str	r2, [r3, #8]
-  28:../Sources/TFC/TFC_LineScanCamera.c **** 	TAOS_SI_LOW;
+  28:../sources/TFC/TFC_LineScanCamera.c **** 	TAOS_SI_LOW;
   95              		.loc 1 28 0
   96 0050 0D4B     		ldr	r3, .L2+16
   97 0052 8022     		mov	r2, #128
   98 0054 9A60     		str	r2, [r3, #8]
-  29:../Sources/TFC/TFC_LineScanCamera.c **** 
-  30:../Sources/TFC/TFC_LineScanCamera.c **** 	LineScanWorkingBuffer = 0;
+  29:../sources/TFC/TFC_LineScanCamera.c **** 
+  30:../sources/TFC/TFC_LineScanCamera.c **** 	LineScanWorkingBuffer = 0;
   99              		.loc 1 30 0
  100 0056 0E4B     		ldr	r3, .L2+24
  101 0058 0022     		mov	r2, #0
  102 005a 1A70     		strb	r2, [r3]
-  31:../Sources/TFC/TFC_LineScanCamera.c **** 	
-  32:../Sources/TFC/TFC_LineScanCamera.c **** 	LineScanImage0WorkingBuffer = &LineScanImage0Buffer[0][0];
+  31:../sources/TFC/TFC_LineScanCamera.c **** 	
+  32:../sources/TFC/TFC_LineScanCamera.c **** 	LineScanImage0WorkingBuffer = &LineScanImage0Buffer[0][0];
  103              		.loc 1 32 0
  104 005c 0D4B     		ldr	r3, .L2+28
  105 005e 0E4A     		ldr	r2, .L2+32
  106 0060 1A60     		str	r2, [r3]
-  33:../Sources/TFC/TFC_LineScanCamera.c **** 	LineScanImage1WorkingBuffer = &LineScanImage1Buffer[0][0];
+  33:../sources/TFC/TFC_LineScanCamera.c **** 	LineScanImage1WorkingBuffer = &LineScanImage1Buffer[0][0];
  107              		.loc 1 33 0
  108 0062 0E4B     		ldr	r3, .L2+36
  109 0064 0E4A     		ldr	r2, .L2+40
  110 0066 1A60     		str	r2, [r3]
-  34:../Sources/TFC/TFC_LineScanCamera.c **** 	
-  35:../Sources/TFC/TFC_LineScanCamera.c **** 	LineScanImage0 = &LineScanImage0Buffer[1][0];
+  34:../sources/TFC/TFC_LineScanCamera.c **** 	
+  35:../sources/TFC/TFC_LineScanCamera.c **** 	LineScanImage0 = &LineScanImage0Buffer[1][0];
  111              		.loc 1 35 0
  112 0068 0E4B     		ldr	r3, .L2+44
  113 006a 0F4A     		ldr	r2, .L2+48
  114 006c 1A60     		str	r2, [r3]
-  36:../Sources/TFC/TFC_LineScanCamera.c **** 	LineScanImage1 = &LineScanImage1Buffer[1][0];
+  36:../sources/TFC/TFC_LineScanCamera.c **** 	LineScanImage1 = &LineScanImage1Buffer[1][0];
  115              		.loc 1 36 0
  116 006e 0F4B     		ldr	r3, .L2+52
  117 0070 0F4A     		ldr	r2, .L2+56
  118 0072 1A60     		str	r2, [r3]
-  37:../Sources/TFC/TFC_LineScanCamera.c **** }
+  37:../sources/TFC/TFC_LineScanCamera.c **** }
  119              		.loc 1 37 0
  120 0074 BD46     		mov	sp, r7
  121              		@ sp needed for prologue
@@ -186,10 +186,10 @@
  153              		.thumb_func
  155              	TFC_SetLineScanExposureTime:
  156              	.LFB1:
-  38:../Sources/TFC/TFC_LineScanCamera.c **** 
-  39:../Sources/TFC/TFC_LineScanCamera.c **** 
-  40:../Sources/TFC/TFC_LineScanCamera.c **** void TFC_SetLineScanExposureTime(uint32_t  TimeIn_uS)
-  41:../Sources/TFC/TFC_LineScanCamera.c **** {
+  38:../sources/TFC/TFC_LineScanCamera.c **** 
+  39:../sources/TFC/TFC_LineScanCamera.c **** 
+  40:../sources/TFC/TFC_LineScanCamera.c **** void TFC_SetLineScanExposureTime(uint32_t  TimeIn_uS)
+  41:../sources/TFC/TFC_LineScanCamera.c **** {
  157              		.loc 1 41 0
  158              		.cfi_startproc
  159 0000 90B5     		push	{r4, r7, lr}
@@ -205,10 +205,10 @@
  169              	.LCFI4:
  170              		.cfi_def_cfa_register 7
  171 0006 7860     		str	r0, [r7, #4]
-  42:../Sources/TFC/TFC_LineScanCamera.c **** 		float t;
-  43:../Sources/TFC/TFC_LineScanCamera.c **** 		
-  44:../Sources/TFC/TFC_LineScanCamera.c **** 		//Figure out how many Pit ticks we need for for the exposure time
-  45:../Sources/TFC/TFC_LineScanCamera.c **** 		t = (TimeIn_uS /1000000.0) * (float)(PERIPHERAL_BUS_CLOCK);
+  42:../sources/TFC/TFC_LineScanCamera.c **** 		float t;
+  43:../sources/TFC/TFC_LineScanCamera.c **** 		
+  44:../sources/TFC/TFC_LineScanCamera.c **** 		//Figure out how many Pit ticks we need for for the exposure time
+  45:../sources/TFC/TFC_LineScanCamera.c **** 		t = (TimeIn_uS /1000000.0) * (float)(PERIPHERAL_BUS_CLOCK);
  172              		.loc 1 45 0
  173 0008 7868     		ldr	r0, [r7, #4]
  174 000a FFF7FEFF 		bl	__aeabi_ui2d
@@ -233,7 +233,7 @@
  193 0036 FFF7FEFF 		bl	__aeabi_d2f
  194 003a 031C     		add	r3, r0, #0
  195 003c FB60     		str	r3, [r7, #12]
-  46:../Sources/TFC/TFC_LineScanCamera.c **** 		PIT_LDVAL0 = (uint32_t)t;
+  46:../sources/TFC/TFC_LineScanCamera.c **** 		PIT_LDVAL0 = (uint32_t)t;
  196              		.loc 1 46 0
  197 003e 0A4C     		ldr	r4, .L5+16
  198 0040 F868     		ldr	r0, [r7, #12]
@@ -242,8 +242,8 @@
  201 0048 8023     		mov	r3, #128
  202 004a 5B00     		lsl	r3, r3, #1
  203 004c E250     		str	r2, [r4, r3]
-  47:../Sources/TFC/TFC_LineScanCamera.c **** 	
-  48:../Sources/TFC/TFC_LineScanCamera.c **** }
+  47:../sources/TFC/TFC_LineScanCamera.c **** 	
+  48:../sources/TFC/TFC_LineScanCamera.c **** }
  204              		.loc 1 48 0
  205 004e BD46     		mov	sp, r7
  206 0050 05B0     		add	sp, sp, #20
@@ -261,8 +261,8 @@
  218              	.LFE1:
  220 006c C046C046 		.text
  221              	.Letext0:
- 222              		.file 2 "C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
- 223              		.file 3 "D:/ELI/BUSINESS/CLIENT_DATA/FREESCALE/frdm-tfc__google-code/DEVELOPMENT_TRUNK/FRDM-TFC/Pr
+ 222              		.file 2 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 223              		.file 3 "H:/CodeWarrior/freescale-line/freescale-line/Project_Headers/MKL25Z4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 TFC_LineScanCamera.c
                             *COM*:00000004 LineScanImage0WorkingBuffer
@@ -272,16 +272,16 @@ DEFINED SYMBOLS
                             *COM*:00000200 LineScanImage0Buffer
                             *COM*:00000200 LineScanImage1Buffer
                             *COM*:00000001 LineScanWorkingBuffer
-C:\Users\ehughes\AppData\Local\Temp\ccPwBOar.s:28     .bss.LineScanImageReady:00000000 LineScanImageReady
-C:\Users\ehughes\AppData\Local\Temp\ccPwBOar.s:29     .bss.LineScanImageReady:00000000 $d
-C:\Users\ehughes\AppData\Local\Temp\ccPwBOar.s:31     .text.TFC_InitLineScanCamera:00000000 $t
-C:\Users\ehughes\AppData\Local\Temp\ccPwBOar.s:36     .text.TFC_InitLineScanCamera:00000000 TFC_InitLineScanCamera
-C:\Users\ehughes\AppData\Local\Temp\ccPwBOar.s:126    .text.TFC_InitLineScanCamera:00000078 $d
-C:\Users\ehughes\AppData\Local\Temp\ccPwBOar.s:150    .text.TFC_SetLineScanExposureTime:00000000 $t
-C:\Users\ehughes\AppData\Local\Temp\ccPwBOar.s:155    .text.TFC_SetLineScanExposureTime:00000000 TFC_SetLineScanExposureTime
-C:\Users\ehughes\AppData\Local\Temp\ccPwBOar.s:212    .text.TFC_SetLineScanExposureTime:00000058 $d
+C:\Users\TAMIMI~1\AppData\Local\Temp\ccB7Dfzd.s:28     .bss.LineScanImageReady:00000000 LineScanImageReady
+C:\Users\TAMIMI~1\AppData\Local\Temp\ccB7Dfzd.s:29     .bss.LineScanImageReady:00000000 $d
+C:\Users\TAMIMI~1\AppData\Local\Temp\ccB7Dfzd.s:31     .text.TFC_InitLineScanCamera:00000000 $t
+C:\Users\TAMIMI~1\AppData\Local\Temp\ccB7Dfzd.s:36     .text.TFC_InitLineScanCamera:00000000 TFC_InitLineScanCamera
+C:\Users\TAMIMI~1\AppData\Local\Temp\ccB7Dfzd.s:126    .text.TFC_InitLineScanCamera:00000078 $d
+C:\Users\TAMIMI~1\AppData\Local\Temp\ccB7Dfzd.s:150    .text.TFC_SetLineScanExposureTime:00000000 $t
+C:\Users\TAMIMI~1\AppData\Local\Temp\ccB7Dfzd.s:155    .text.TFC_SetLineScanExposureTime:00000000 TFC_SetLineScanExposureTime
+C:\Users\TAMIMI~1\AppData\Local\Temp\ccB7Dfzd.s:212    .text.TFC_SetLineScanExposureTime:00000058 $d
                      .debug_frame:00000010 $d
-C:\Users\ehughes\AppData\Local\Temp\ccPwBOar.s:220    .text.TFC_SetLineScanExposureTime:0000006c $t
+C:\Users\TAMIMI~1\AppData\Local\Temp\ccB7Dfzd.s:220    .text.TFC_SetLineScanExposureTime:0000006c $t
 
 UNDEFINED SYMBOLS
 __aeabi_ui2d

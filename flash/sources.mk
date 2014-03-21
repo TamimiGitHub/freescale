@@ -59,7 +59,8 @@ OBJS_OS_FORMAT :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-Sources \
-Sources/TFC \
+sources \
+sources/TFC \
 Project_Settings/Startup_Code \
+.metadata/.plugins/org.eclipse.cdt.make.core \
 

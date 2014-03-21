@@ -101,7 +101,8 @@ void TerminalCmd_D(char *arg)
 {
 	 TERMINAL_PRINTF("\t\r\nDisabling H-Bridges\r\n");
 	 TFC_HBRIDGE_DISABLE;
-	 TFC_SetMotorPWM(0,0);
+	 TFC_SetPWMLookup(0,0);
+	 //TFC_SetMotorPWM(0,0); REPLACED BY TFC_SetPWMLookup()
 }
 
 void TerminalCmd_GetLineScan(char *arg)
@@ -142,8 +143,8 @@ void TerminalCmd_S(char *arg)
 	
 	TERMINAL_PRINTF("Setting Servos to %d , %d\r\n",ServoSetting[0],ServoSetting[1]);
 	
-	TFC_SetServo(0,(float)ServoSetting[0]/100.0f); //Rescale to -1.0 to 1.0
-	TFC_SetServo(1,(float)ServoSetting[1]/100.0f);
+	TFC_SetServo((float)ServoSetting[0]/100.0f); //Rescale to -1.0 to 1.0
+	TFC_SetServo((float)ServoSetting[1]/100.0f);
 	}
 	else
 	{
@@ -162,7 +163,7 @@ void TerminalCmd_H(char *arg)
 	
 	TERMINAL_PRINTF("Setting motor effort to to %d , %d\r\n",MotorSetting[0],MotorSetting[1]);
 	
-	TFC_SetMotorPWM((float)MotorSetting[0]/100.0f,(float)MotorSetting[1]/100.0f);
+	TFC_SetPWMLookup((float)MotorSetting[0]/100.0f,(float)MotorSetting[1]/100.0f);
 
 
 	}

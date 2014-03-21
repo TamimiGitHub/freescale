@@ -3,9 +3,23 @@
 
 int main(void)
 {
-	uint32_t t,i=0;
-	
+	uint32_t i=0;
+	//LineScanImage0;
+	int ii=0;
+	int deltaL, deltaR;
+	int firstLevel, secondLevel;
+	int steeringAngle;
+	int samplenum = 4;
+	int threshold=50*samplenum;
+	int smallthreshold=50*samplenum;
 	TFC_Init();
+	
+	TFC_Delay_mS(3000); // delay before starting motor
+	
+	TFC_HBRIDGE_ENABLE;
+	TFC_SetPWMLookup(10,10);
+	
+	
 	
 	for(;;)
 	{	   
@@ -17,121 +31,78 @@ int main(void)
 			switch((TFC_GetDIP_Switch()>>1)&0x03)
 			{
 			default:
-			case 0 :
-				//Demo mode 0 just tests the switches and LED's
-				if(TFC_PUSH_BUTTON_0_PRESSED)
-					TFC_BAT_LED0_ON;
-				else
-					TFC_BAT_LED0_OFF;
+				ii=0;
 				
-				if(TFC_PUSH_BUTTON_1_PRESSED)
-					TFC_BAT_LED3_ON;
-				else
-					TFC_BAT_LED3_OFF;
-				
-				
-				if(TFC_GetDIP_Switch()&0x01)
-					TFC_BAT_LED1_ON;
-				else
-					TFC_BAT_LED1_OFF;
-				
-				if(TFC_GetDIP_Switch()&0x08)
-					TFC_BAT_LED2_ON;
-				else
-					TFC_BAT_LED2_OFF;
-				
-				TFC_SetMotorPWM(0,0); //Make sure motors are off
-				TFC_HBRIDGE_DISABLE;
-				break;
+				uint16_t  WorkingImage[128]={0};
+				int sample = 0;
+				for(;sample<3;){
+					if(LineScanImageReady){
+						int j=0;
+						for(;j<128;j++) WorkingImage[j]+=LineScanImage0[j];
+						sample++;
+					}
 					
-			case 1:
-				
-				//Demo mode 1 will just move the servos with the on-board potentiometers
-				if(TFC_Ticker[0]>=20)
-				{
-					TFC_Ticker[0] = 0; //reset the Ticker
-					//Every 20 mSeconds, update the Servos
-					TFC_SetServo(0,TFC_ReadPot(0));
-					TFC_SetServo(1,TFC_ReadPot(1));
 				}
-				//Let's put a pattern on the LEDs
-				if(TFC_Ticker[1] >= 125)
-				{
-					TFC_Ticker[1] = 0;
-					t++;
-					if(t>4)
-					{
-						t=0;
-					}			
-					TFC_SetBatteryLED_Level(t);
+									
+				
+			int L1, L2, R1, R2;				
+				for(;ii<=50; ii++){
+					L1 = WorkingImage[63-ii];
+					L2 = WorkingImage[62-ii];
+					R1 = WorkingImage[64+ii];
+					R2 = WorkingImage[65+ii];
+					deltaL = WorkingImage[63-ii] - WorkingImage[62-ii];
+					deltaR = WorkingImage[64+ii] - WorkingImage[65+ii];
+					
+					if(deltaL<-threshold||deltaR<-threshold){
+						//car continues straight(may want to adjust this later to be more accurate)
+						steeringAngle = 0;
+						TFC_SetServoLookup(0);// straight line to servos
+						break;
+					}
+					//where first derivative drop found on leftside
+					
+					if(deltaL>threshold&&(WorkingImage[62-ii] - WorkingImage[61-ii])>threshold){
+						//may need to change 3 should be lower than first thresh holdslope
+						while(deltaL>smallthreshold&&ii<=50){
+							ii++;
+							deltaL = WorkingImage[63-ii] - WorkingImage[62-ii];
+						}
+						firstLevel = 63 - ii;
+						while(deltaL<smallthreshold&&i<=50){
+							ii++;
+							deltaL = WorkingImage[63-ii] - WorkingImage[62-ii];
+						}
+						secondLevel = 63 - ii;
+						steeringAngle = (firstLevel + secondLevel)/2; 
+						TFC_SetServoLookup(steeringAngle-50);
+						break;//don't check right side
+					
+					}
+					if(deltaR>threshold&&(WorkingImage[65+ii] - WorkingImage[66+ii])>threshold){
+					//may need to change 3 should be lower than first thresh holdslope
+						while(deltaR>smallthreshold&&ii<=50){
+							ii++;
+							deltaR = WorkingImage[64+ii] - WorkingImage[65+ii];
+						}
+						firstLevel = 64 + ii;
+						while(deltaL<smallthreshold&&ii<=50){
+							ii++;
+							deltaR = WorkingImage[64+ii] - WorkingImage[65+ii];
+						}
+							secondLevel = 64 + ii;
+							steeringAngle = (firstLevel + secondLevel)/2; 
+							TFC_SetServoLookup(steeringAngle-50);
+							break; //don't check anymore bits				
+										
+						}
 				}
+				steeringAngle = 0;//if passes a horizontal line
+				TFC_SetServoLookup(steeringAngle); // straight line to servos
 				
-				TFC_SetMotorPWM(0,0); //Make sure motors are off
-				TFC_HBRIDGE_DISABLE;
-			
-
-				break;
 				
-			case 2 :
 				
-				//Demo Mode 2 will use the Pots to make the motors move
-				TFC_HBRIDGE_ENABLE;
-				TFC_SetMotorPWM(10,10);
-				//TFC_SetMotorPWM(TFC_ReadPot(0),TFC_ReadPot(1));
-						
-				//Let's put a pattern on the LEDs
-				if(TFC_Ticker[1] >= 125)
-					{
-						TFC_Ticker[1] = 0;
-							t++;
-							if(t>4)
-							{
-								t=0;
-							}			
-						TFC_SetBatteryLED_Level(t);
-					}
-
-				break;
-			
-			case 3 :
-			
-				//Demo Mode 3 will be in Freescale Garage Mode.  It will beam data from the Camera to the 
-				//Labview Application
 				
-		
-				if(TFC_Ticker[0]>100 && LineScanImageReady==1)
-					{
-					 TFC_Ticker[0] = 0;
-					 LineScanImageReady=0;
-					 TERMINAL_PRINTF("\r\n");
-					 TERMINAL_PRINTF("L:");
-					 
-					 	if(t==0)
-					 		t=3;
-					 	else
-					 		t--;
-					 	
-						 TFC_SetBatteryLED_Level(t);
-						
-						 for(i=0;i<128;i++)
-						 {
-								 TERMINAL_PRINTF("%X,",LineScanImage0[i]);
-						 }
-						
-						 for(i=0;i<128;i++)
-						 {
-								 TERMINAL_PRINTF("%X",LineScanImage1[i]);
-								 if(i==127)
-									 TERMINAL_PRINTF("\r\n",LineScanImage1[i]);
-								 else
-									 TERMINAL_PRINTF(",",LineScanImage1[i]);
-						}										
-							
-					}
-				TFC_SetMotorPWM(0,0); //Make sure motors are off
-				TFC_HBRIDGE_DISABLE;
-
-
 				break;
 			}
 	}
